@@ -76,3 +76,41 @@ html, body, #root {
 .fade-in {
   animation: fadeIn 0.4s ease-out forwards;
 }
+
+/* 自定义滚动条样式 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ff9ac2;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ffc2d9;
+}
+
+/* App.css */
+.return-btn {
+  background: none;
+  border: 1px solid #87ceeb;
+  color: #87ceeb;
+  transition: all 0.2s;
+}
+
+.return-btn:hover {
+  background: #87ceeb;
+  color: #000;
+  box-shadow: 0 0 10px #87ceeb;
+}
+
+/* 隐藏 R3F Html 组件自动生成的遮罩几何体，防止粉色/黑色块出现 */
+[data-occlude] {
+  opacity: 0 !important;
+  background: transparent !important;
+}
