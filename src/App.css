@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+/* src/index.css */
+
+/* 1. 确保画布充满全屏且没有溢出滚动条 */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 防止 3D 场景出现滚动条 */
+  background-color: #ffe4f5; /* 你的卡比粉底色 */
+}
+
+/* 2. 自定义虚拟 OS 的滚动条样式（消除 AI 味的关键） */
+.os-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.os-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.os-scrollbar::-webkit-scrollbar-thumb {
+  background: #ff9ac2;
+  border-radius: 10px;
+}
+
+/* 3. 像素文字平滑处理 */
+* {
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
