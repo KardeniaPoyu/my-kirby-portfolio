@@ -807,7 +807,6 @@ function VirtualOS({ view, setView }) {
   const [isMoving, setIsMoving] = useState(false);
   const { camera } = useThree();
   const [view, setView] = useState('room');
-  const [uiVisible, setUiVisible] = useState(false);
   const controlsRef = useRef();
   const initialCameraPosition = useRef(new THREE.Vector3(0, 2, 5));
   // 建议：移除 animationTimeouts，改用 GSAP 自带的清理
@@ -823,7 +822,6 @@ useEffect(() => {
         console.warn('⚠️ 动画状态超时，强制解锁');
         setIsMoving(false);
         // 如果卡在 focus 状态，强制显示 UI
-        if (view === 'focus') setUiVisible(true);
       }
     }, 2000);
 
@@ -871,7 +869,6 @@ useEffect(() => {
         onComplete: () => {
           // 动画结束，状态落位
           setView('focus');
-          setUiVisible(true);
           setIsMoving(false);
         }
       });
@@ -886,7 +883,6 @@ useEffect(() => {
 
     if (newView === 'room' && view === 'focus') {
       setIsMoving(true);
-      setUiVisible(false); // 先隐藏 UI
 
       // ✅ 修复3：强力清理
       gsap.killTweensOf(camera.position);
