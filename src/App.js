@@ -154,39 +154,39 @@
     type: 'text',
     content: "Hi there ! If someone is reading this file, remember my name is Yirong Zhou (周 毅荣).I am currently an undergraduate student majoring in Information and Computing Science from China. My academic interests include computer graphics, AI, and game development."
   },
-  {
-    type: 'image',
-    url: '你的照片1_URL',
-    caption: 'Fig 1: Me when I was small, China'
-  },
+  
   {
     type: 'text',
-    content: "I have a strong passion for exploring how mathematics can be applied to create immersive digital experiences. Currently, I am focusing on real-time rendering and GPGPU programming."
+    content: "I have a strong passion for exploring how mathematics can be applied to create immersive digital experiences. Currently, I am focusing on real-time rendering and GPU programming."
   },
-  {
-    type: 'image',
-    url: '/images/',
-    caption: 'Fig 2: Me when I finished my Junior high school, Liuzhou, China'
-  },
-  {
-    type: 'text',
-    content: "In my spare time, I enjoy Japanese culture and hope to live and work there in the future. I believe that every pixel tells a story."
-  },
+  
   {
     type: 'image',
     url: '/images/微信图片_20260118135146_1059_4.jpg',
-    caption: 'Fig. 3. Me at Disenyland, Shanghai, China'
+    caption: 'Fig. 1. Me at Disenyland, Shanghai, China'
+  },
+  {
+    type: 'text',
+    content: "I enjoy not only tech but also design. Making games has always been a dream of mine. I enjoy the entire process from conceptualization to coding and design. I have experience working with Unity and Unreal Engine, and I am constantly learning new tools and techniques to improve my skills."
   },
   {
     type: 'image',
     url: '/images/微信图片_20260118135147_1060_4.jpg',
-    caption: 'Fig. 4. Me and my friends at the Great Wall, Beijing, China'
+    caption: 'Fig. 2. Me and my friends at the Great Wall, Beijing, China'
+  },
+  {
+    type: 'text',
+    content: "I have visited Japan multiple times and fallen in love with its unique blend of tradition and modernity. The vibrant city life, rich history, and warm people have left a lasting impression on me. So I hope to work in Japan and learn more about game development."
   },
   {
     type: 'image',
     url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
-    caption: 'Fig. 5. Me at Shinsaibashi, Osaka, Japan'
+    caption: 'Fig. 3. Me at Shinsaibashi, Osaka, Japan'
   },
+  {
+    type: 'text',
+    content: "Feel free to reach out to me for collaborations, discussions, or just to say hi! I'm always open to connecting with like-minded individuals."
+  }
 ];
       // ===== 视频链接转 iframe =====
       function convertToEmbed(url) {
