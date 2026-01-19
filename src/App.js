@@ -169,11 +169,7 @@
     type: 'text',
     content: "I enjoy not only tech but also design. Making games has always been a dream of mine. I enjoy the entire process from conceptualization to coding and design. I have experience working with Unity and Unreal Engine, and I am constantly learning new tools and techniques to improve my skills."
   },
-  {
-    type: 'image',
-    url: '/images/微信图片_20260118135147_1060_4.jpg',
-    caption: 'Fig. 2. Me and my friends at the Great Wall, Beijing, China'
-  },
+
   {
     type: 'text',
     content: "I have visited Japan multiple times and fallen in love with its unique blend of tradition and modernity. The vibrant city life, rich history, and warm people have left a lasting impression on me. So I hope to work in Japan and learn more about game development there. Kirby is one of my favorite character!"
@@ -181,7 +177,7 @@
   {
     type: 'image',
     url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
-    caption: 'Fig. 3. Me at Shinsaibashi, Osaka, Japan'
+    caption: 'Fig. 2. Me at Shinsaibashi, Osaka, Japan'
   },
   {
     type: 'text',
