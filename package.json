@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@iconify/react": "^6.0.2"
+    "@iconify/react": "^6.0.2",
+    "yaml": "^2.8.2"
   }
 }
