@@ -165,7 +165,7 @@
   },
   {
     type: 'image',
-    url: '/images/微信图片_20260118135147_1060_4.jpg',
+    url: '/images/',
     caption: 'Fig 2: Me when I finished my Junior high school, Liuzhou, China'
   },
   {
@@ -657,7 +657,7 @@ function VirtualOS({ view, setView }) {
         {[
           { name: 'GITHUB', url: 'https://github.com/KardeniaPoyu', color: '#fff', icon: 'pixelarticons:github' },
           { name: 'X/TWITTER', url: 'https://x.com/KardeniaPoyu', color: '#1DA1F2', icon: 'pixelarticons:contact' },
-          { name: 'BLOG', url: 'https://yirong.site', color: '#ea4c89', icon: 'pixelarticons:article' },
+          { name: 'BLOG', url: 'https://blog.yirong.site', color: '#ea4c89', icon: 'pixelarticons:article' },
           { name: 'BILIBILI', url: 'https://space.bilibili.com/15095535', color: '#fb7299', icon: 'ri:bilibili-fill' }
         ].map(link => (
           <a key={link.name} href={link.url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', width: '320px' }}>
