@@ -1,6 +1,6 @@
       import React, { useRef, useState,useEffect, Suspense } from 'react';
-      import { Canvas, useFrame, useThree } from '@react-three/fiber';
-      import { OrbitControls, Float, Html, ContactShadows, MeshReflectorMaterial, PerspectiveCamera, useGLTF, Environment, Center, Stage } from '@react-three/drei';
+      import { Canvas, useThree } from '@react-three/fiber';
+      import { OrbitControls, Float, Html, ContactShadows,  PerspectiveCamera, useGLTF, Environment, Center } from '@react-three/drei';
       import * as THREE from 'three';
       import gsap from 'gsap';
       import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib';
