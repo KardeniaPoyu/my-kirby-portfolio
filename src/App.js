@@ -44,10 +44,8 @@
           description: [
   "As a core programmer, I participated in the development of 'Hotel404', a third-person exploration horror game created using Unity and C#.",
   "In this game, players take on the role of a detective investigating a mysterious hotel filled with supernatural occurrences.",
- "I was responsible for integrating player-related resources such as health and buffs, and independently implemented a JSON-based save and load system featuring save previews and basic data encryption.",
-  "Based on this system, I further developed a flexible level structure using a two-dimensional array to represent an n-by-n room layout, allowing designers to freely configure rooms and insert narrative dialogue prompts into any room.",
-  "My responsibilities also included implementing core gameplay mechanics, optimizing performance, and integrating audio elements using FL Studio to enhance the eerie atmosphere.",
-  "The game was developed within a long term (21-day) timeframe during the TapTap GameJam 2025 and it ended up receiving positive feedback on TapTap."
+  "My responsibilities included implementing core gameplay mechanics, optimizing performance, and integrating audio elements using FL Studio to enhance the eerie atmosphere.",
+  "The game was developed within 21 days timeframe during the TapTap GameJam 2025 and has received positive feedback for its immersive experience and engaging storyline."
 ],
           tech: ["Unity", "C#", "FL Studio"],
           date: "2025.11.04",       // 新增日期
@@ -75,15 +73,14 @@
           type: "code",
           title: "<thatgamecompany × COREBLAZER GAME JAM 2025> Psycho",
           category: "Game Development",
-          image: "/images/7ce21d297ac5a0790e5b046381783ef9.png",
-         description: [
-            "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system.",
-            "The dialogue framework supports Excel-based data configuration, enabling rapid content iteration without code modification, including branching narratives, portrait state control (grayscale/normal), and synchronized sound playback.",
-            "The protagonist is accompanied by an AI-controlled pet dog whose behavior is driven by a custom A* pathfinding implementation, allowing autonomous navigation when summoned and stochastic roaming during idle states with stable runtime performance.",
-            "Developed during my first Game Jam, I independently built the core systems from scratch; despite the project remaining unfinished due to team dissolution, the experience significantly strengthened my skills in system architecture, algorithm implementation, and high-pressure collaborative development."
+          image: "/images/1.12.JPG",
+          description: [
+            "As a core programmer, I participated in the development of 'Hotel404', a third-person exploration horror game created using Unity and C#.",
+            "In this game, players take on the role of a detective investigating a mysterious hotel filled with supernatural occurrences.",
+            "My responsibilities included implementing core gameplay mechanics, optimizing performance, and integrating audio elements using FL Studio to enhance the eerie atmosphere.",
+            "The game was developed within 21 days timeframe during the TapTap GameJam 2025 and has received positive feedback for its immersive experience and engaging storyline."
           ],
           tech: ["Unity", "C#"],
-          date: "2025.03.28", 
           demoLink: "https://youtu.be/w_Qv93HVY08",
           repoLink: "https://github.com/KardeniaPoyu/dialogue-system"
         },
@@ -157,7 +154,7 @@
   {
     type: 'image',
     url: '你的照片1_URL',
-    caption: 'Fig 1: Me when I was small, China'
+    caption: 'Fig 1: Me when I was small, , China'
   },
   {
     type: 'text',
@@ -175,17 +172,17 @@
   {
     type: 'image',
     url: '/images/微信图片_20260118135146_1059_4.jpg',
-    caption: 'Fig. 3. Me at Disenyland, Shanghai, China'
+    caption: 'Fig 3: Me in Disenyland, Shanghai, China'
   },
   {
     type: 'image',
     url: '/images/微信图片_20260118135147_1060_4.jpg',
-    caption: 'Fig. 4. Me and my friends at the Great Wall, Beijing, China'
+    caption: 'Fig 4: Me with my friends in The Great Wall, Beijing, China'
   },
   {
     type: 'image',
-    url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
-    caption: 'Fig. 5. Me at Shinsaibashi, Osaka, Japan'
+    url: '/images/b16bd7b545148e8c0370a668e0b8f9e8.jpg',
+    caption: 'Fig 5: Me in Shinsaibashi, Osaka, Japan'
   },
 ];
       // ===== 视频链接转 iframe =====
@@ -658,7 +655,7 @@ function VirtualOS({ view, setView }) {
           { name: 'GITHUB', url: 'https://github.com/KardeniaPoyu', color: '#fff', icon: 'pixelarticons:github' },
           { name: 'X/TWITTER', url: 'https://x.com/KardeniaPoyu', color: '#1DA1F2', icon: 'pixelarticons:contact' },
           { name: 'BLOG', url: 'https://yirong.site', color: '#ea4c89', icon: 'pixelarticons:article' },
-          { name: 'BILIBILI', url: 'https://space.bilibili.com/15095535', color: '#fb7299', icon: 'ri:bilibili-fill' }
+          { name: 'BILIBILI', url: 'https://space.bilibili.com/393165089', color: '#fb7299', icon: 'ri:bilibili-fill' }
         ].map(link => (
           <a key={link.name} href={link.url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', width: '320px' }}>
             <div style={{
@@ -695,7 +692,6 @@ function VirtualOS({ view, setView }) {
     <h2 style={{ color: '#ff9ac2', marginBottom: '20px', borderBottom: '1px solid #ff9ac2', paddingBottom: '10px' }}>
       &gt; USER_PROFILE_DOCUMENT == Yirong Zhou
     </h2>
-
     
     <div className="custom-scrollbar" style={{ 
       flex: 1, 
@@ -705,9 +701,6 @@ function VirtualOS({ view, setView }) {
       lineHeight: '1.8',
       color: '#eee'
     }}>
-           <div style={{ marginTop: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ff9ac2' }}>
-                        Yirong Zhou.
-                      </div>
       {aboutContent.map((item, index) => {
         if (item.type === 'text') {
           return (
