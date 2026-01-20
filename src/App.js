@@ -1089,14 +1089,18 @@ const navArrowStyle = (dir) => ({
         useGLTF.preload('/models/device.glb');
 
         // ==================== 场景管理 ====================
-        function Scene() {
+        function Scene({ onViewChange }) {
     const [isMoving, setIsMoving] = useState(false);
     const { camera } = useThree();
     const [view, setView] = useState('room');
     const controlsRef = useRef();
     const initialCameraPosition = useRef(new THREE.Vector3(0, 2, 5));
 
-
+useEffect(() => {
+    if (onViewChange) {
+      onViewChange(view);
+    }
+  }, [view, onViewChange]);
     // 移除 animationTimeouts，改用 GSAP 自带的清理
 
     // 确保引入 useEffect
@@ -1707,6 +1711,7 @@ backdropFilter: 'blur(12px)',
             const hasVisited = localStorage.getItem('portfolio_visited');
             return !hasVisited;
           });
+          const [currentView, setCurrentView] = useState('room');
 
           const handleCloseIntro = () => {
             localStorage.setItem('portfolio_visited', 'true');
@@ -1722,31 +1727,34 @@ backdropFilter: 'blur(12px)',
                 <color attach="background" args={['#ffe4f5']} />
                 <fog attach="fog" args={['#ffe4f5', 8, 20]} />
                 <Suspense fallback={null}>
-                  <Scene />
+                  <Scene onViewChange={setCurrentView} />
                 </Suspense>
               </Canvas>
               
-              {/* 顶部的提示文字容器 */}
-              <div style={{
-                position: 'absolute',
-                top: '20px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                background: 'rgba(255, 255, 255, 0.95)',
-                padding: '12px 30px',
-                borderRadius: '30px',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                fontSize: '14px',
-                color: '#ff6b9d',
-                fontWeight: 'bold',
-                boxShadow: '0 4px 20px rgba(255, 107, 157, 0.3)',
-                pointerEvents: 'none',
-                zIndex: 10,
-                whiteSpace: 'nowrap',
-                border: '2px solid #ffb7d5'
-              }}>
-                CLICK THE PC TO BEGIN
-              </div>
+              {/* 顶部的提示文字容器 - 只在 room 视图时显示 */}
+<div style={{
+  position: 'absolute',
+  top: '20px',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  background: 'rgba(255, 255, 255, 0.95)',
+  padding: '12px 30px',
+  borderRadius: '30px',
+  fontFamily: 'system-ui, -apple-system, sans-serif',
+  fontSize: '14px',
+  color: '#ff6b9d',
+  fontWeight: 'bold',
+  boxShadow: '0 4px 20px rgba(255, 107, 157, 0.3)',
+  pointerEvents: 'none',
+  zIndex: 10,
+  whiteSpace: 'nowrap',
+  border: '2px solid #ffb7d5',
+  opacity: currentView === 'room' ? 1 : 0,
+  transition: 'opacity 0.5s ease, visibility 0.5s ease',  // 👈 给 visibility 也加上过渡
+  visibility: currentView === 'room' ? 'visible' : 'hidden'
+}}>
+  CLICK THE PC TO BEGIN
+</div>
             </div>
           );
         }
