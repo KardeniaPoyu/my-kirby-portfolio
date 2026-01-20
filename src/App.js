@@ -6,7 +6,8 @@
         import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib';
         import { Sparkles } from '@react-three/drei';
         import { useTexture } from '@react-three/drei';
-        import { Icon } from '@iconify/react';
+        import { Icon } from '@/components/Icon';
+
 
 
 
@@ -40,7 +41,10 @@
             type: "code", // 标志为代码作品
             title: "Hotel404",
             category: "2D third-person exploration horror game",
-            image: "/images/434f2cab678457d65590ea3b7cba20b2.png",
+            images: ["/images/434f2cab678457d65590ea3b7cba20b2.png",
+            "/images/hotel4042.png",
+            "/images/7b805ce1197804596517ab03bef58838.png"
+            ],
             description: [
     "As a core programmer, I contributed significantly to the development of Hotel404 during the TapTap Spotlight Game Jam 2025, a third-person exploration horror game created using Unity and C#.",
     "In this game, players take on the role of a detective investigating a mysterious hotel filled with supernatural occurrences.",
@@ -59,7 +63,7 @@
             type: "research", // 标志为研究作品
             title: "YOLOv8-MAH: A New Vehicle Detection Method",
             category: "Computer Vision / Deep Learning",
-            image: "/images/output_8_0.png", 
+            images: ["/images/output_8_0.png"], 
             description: [
               "As the first author, I proposed YOLOv8-MAH, an enhanced vehicle detection model designed to address challenges like complex backgrounds and small object occlusion in urban traffic.",
               "The research was presented at CVIP 2025 (IEEE Conference on Computer Vision and Image Processing) and is published in the official proceedings.",
@@ -76,7 +80,7 @@
             type: "code",
             title: "Psycho",
             category: "2D top-down game",
-            image: "/images/7ce21d297ac5a0790e5b046381783ef9.png",
+            images: ["/images/7ce21d297ac5a0790e5b046381783ef9.png"],
           description: [
               "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system during that gamecompany × COREBLAZER GAME JAM 2025.",
               "The dialogue framework supports Excel-based data configuration, enabling rapid content iteration without code modification, including branching narratives, portrait state control (grayscale/normal), and synchronized sound playback.",
@@ -88,21 +92,13 @@
             demoLink: "https://youtu.be/w_Qv93HVY08",
             repoLink: "https://github.com/KardeniaPoyu/dialogue-system"
           },
-          {
-            id: 4,
-            title: "像素艺术生成器",
-            category: "创意工具",
-            image: "/api/placeholder/600/400",
-            description: "在线像素画编辑器，支持多图层、动画预览、调色板管理。已被 1000+ 艺术家使用。",
-            tech: ["Canvas API", "Vue.js", "WebSocket"],
-            link: "#"
-          },
+          
           {
             id: 6,
             type: "research", 
             title: "Gender Disparities in Japan's Work-Life Balance",
             category: "Data Analysis / Statistics",
-            image: "/images/Japan_worker.png",
+            images: ["/images/Japan_worker.png"],
             description: [
               "In this comprehensive data analysis project, I decrypted the gender-based structural differences in the Japanese labor market using non-parametric statistical methods.",
               "The research involved deep-dive processing of large-scale survey data, applying Kruskal-Wallis tests and Spearman correlation to identify how family roles influence working hours.",
@@ -119,7 +115,7 @@
             type: "research", 
             title: "Machine Learning for Eco-Sustainability in Ethnic Villages",
             category: "Machine Learning / Ecology / Remote Sensing",
-            image: "/images/eco_viliage.png", 
+            images: ["/images/eco_viliage.png"], 
             description: [
               "As a core member of the URTP (University Student Research Training Program), I developed an integrated framework to evaluate the ecological security and Sustainable Development Goals (SDGs) of ethnic villages in my hometown, Guangxi(广西).",
               "The project utilizes InVEST models to quantify ecosystem services and employs advanced machine learning algorithms, including Random Forest and CNN-LSTM, to model the spatiotemporal coupling between ecology and economy.",
@@ -136,7 +132,7 @@
             type: "research", 
             title: "Product Design Disparities in Regional Health Code Systems",
             category: "Data Analysis / Statistics",
-            image: "/images/paper_heal_code.png",
+            images: ["/images/paper_heal_code.png"],
             description: [
               "As the group leader of the QMRP (Green Seedling Program), I conducted a comparative audit of digital health code architectures across multiple provinces including Guangxi, Jilin, and Hubei.",
               "The research decodes how regional policy variations influenced the UI/UX design and functional logic of digital governance tools during the 2022 pandemic period.",
@@ -262,6 +258,24 @@
   }
 ];
 
+// 抽离的极简三角按钮样式
+const navArrowStyle = (dir) => ({
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  [dir]: '10px',
+  background: 'none',
+  border: 'none',
+  color: 'rgba(255, 154, 194, 0.5)',
+  cursor: 'pointer',
+  fontSize: '24px',
+  zIndex: 10,
+  transition: '0.2s',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '0'
+});
+
 
         // ==================== 虚拟操作系统界面 ====================
   function VirtualOS({ view, setView }) {
@@ -270,6 +284,7 @@
     const [videoUrl, setVideoUrl] = useState(null);
     const [emailForm, setEmailForm] = useState({ subject: '', body: '' });
     const [isReturnHover, setIsReturnHover] = useState(false);
+    const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
     // 监听退出动作，清理状态
     useEffect(() => {
@@ -278,6 +293,21 @@
         setVideoUrl(null);
       }
     }, [view]);
+
+    // 切换逻辑
+  const nextImg = (e) => {
+    e.stopPropagation();
+    if (selectedProject?.images) {
+      setCurrentImgIndex((prev) => (prev + 1) % selectedProject.images.length);
+    }
+  };
+
+  const prevImg = (e) => {
+    e.stopPropagation();
+    if (selectedProject?.images) {
+      setCurrentImgIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
+    }
+  };
 
     // 内部辅助组件
     const PixelButton = ({ onClick, children, color = "#ff9ac2", href }) => {
@@ -544,7 +574,12 @@
             }
           >
             <img
-              src={project.image}
+              src={
+    // 逻辑：优先找 images 数组的第 0 项，找不到就找旧的 image 字符串，最后给占位图
+    (project.images && Array.isArray(project.images)) 
+      ? project.images[0] 
+      : (project.images || project.image || "/api/placeholder/600/400")
+  }
               style={{
                 width: '100%',
                 height: '160px',
@@ -589,7 +624,13 @@
       <div className="fade-in">
         {/* 返回按钮 */}
         <button 
-          onClick={() => setSelectedProject(null)}
+  onClick={() => {
+    setSelectedProject(null);
+    if (typeof setCurrentImgIndex === 'function') {
+      setCurrentImgIndex(0); 
+    }
+  }}
+          
           style={{ background: 'none', border: 'none', color: '#ff9ac2', cursor: 'pointer', marginBottom: '20px', fontFamily: '"Press Start 2P"', fontSize: '10px' }}
         >
           [ BACK_TO_LIST ]
@@ -598,7 +639,65 @@
         <div style={{ display: 'flex', gap: '30px' }}>
           {/* 左侧：预览图与技术栈 */}
           <div style={{ flex: 1 }}>
-            <img src={selectedProject.image} style={{ width: '100%', border: '3px solid #ff9ac2', boxShadow: '0 0 20px rgba(255,154,194,0.3)' }} alt="" />
+                <div style={{ 
+  position: 'relative', 
+  border: '3px solid #ff9ac2', 
+  background: '#000',
+  boxShadow: '0 0 20px rgba(255,154,194,0.3)',
+  // --- 新增：固定高度和溢出隐藏 ---
+  height: '300px', // 你可以根据需要调整这个高度像素值
+  width: '100%',
+  overflow: 'hidden',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}}>
+  <img 
+    src={
+    Array.isArray(selectedProject.images) 
+      ? selectedProject.images[currentImgIndex] 
+      : (selectedProject.images || selectedProject.image)
+      
+  }
+  loading="lazy"
+  decoding="async"
+    style={{ 
+      width: '100%', 
+      height: '100%',    // 撑满容器高度
+      display: 'block',
+      objectFit: 'contain'  // 
+    }} 
+    alt="" 
+  />
+
+                  {/* 左右三角按键：极简设计 */}
+                  {selectedProject.images.length > 1 && (
+                    <>
+                      <button onClick={prevImg} style={navArrowStyle('left')}>
+                        <Icon icon="pixelarticons:chevron-left" />
+                      </button>
+                      <button onClick={nextImg} style={navArrowStyle('right')}>
+                        <Icon icon="pixelarticons:chevron-right" />
+                      </button>
+
+                      {/* 圆点指示器 (Dots Indicator) */}
+                      <div style={{
+                        position: 'absolute', bottom: '15px', left: '50%',
+                        transform: 'translateX(-50%)', display: 'flex', gap: '8px',
+                        background: 'rgba(0,0,0,0.4)', padding: '5px 10px', borderRadius: '10px'
+                      }}>
+                        {selectedProject.images.map((_, index) => (
+                          <div key={index} style={{
+                            width: '6px', height: '6px', borderRadius: '50%',
+                            backgroundColor: index === currentImgIndex ? '#ff9ac2' : 'rgba(255,154,194,0.3)',
+                            boxShadow: index === currentImgIndex ? '0 0 8px #ff9ac2' : 'none',
+                            transition: 'all 0.3s'
+                          }} />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
             <div style={{ marginTop: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {selectedProject.tech.map(t => (
                 <span key={t} style={{ fontSize: ' 10px', padding: '4px 8px', background: '#3d253a', border: '1px solid #ff9ac2' }}>{t}</span>
