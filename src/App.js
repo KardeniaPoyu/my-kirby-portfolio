@@ -81,7 +81,7 @@
             title: "Psycho",
             category: "2D top-down game",
             images: ["/images/7ce21d297ac5a0790e5b046381783ef9.png",
-            "/images/psycho1.png",
+            "/images/psyco1.png",
             ],
           description: [
               "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system during that gamecompany × COREBLAZER GAME JAM 2025.",
