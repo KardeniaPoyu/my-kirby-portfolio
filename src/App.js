@@ -52,14 +52,14 @@
           tech: ["Unity", "C#", "FL Studio"],
           date: "2025.11.04",       // 新增日期
           demoLink: "https://www.bilibili.com/video/BV1jhyeBKExq?spm_id_from=333.788.recommend_more_video.-1&trackid=web_related_0.router-related-2206146-2vzpc.1768704626051.419&vd_source=be836a0d4ac529548a9c236733b602c9", // 新增视频/预览链接
-          repoLink: "https://www.taptap.cn/app/779446"  // 新增仓库/证明链接
+          repoLink: "https://www.taptap.cn/app/779446"  
         },
         {
           id: 2,
           type: "research", // 标志为研究作品
           title: "<CVIP 2025> YOLOv8-MAH: A New Vehicle Detection Method",
           category: "Computer Vision / Deep Learning",
-          image: "/images/output_8_0.png", // 建议替换为论文中的热力图(Heatmap)或模型架构图
+          image: "/images/output_8_0.png", 
           description: [
             "As the first author, I proposed YOLOv8-MAH, an enhanced vehicle detection model designed to address challenges like complex backgrounds and small object occlusion in urban traffic.",
             "The model integrates a Multi-Head Self-Attention (MHSA) mechanism into the backbone to capture global dependencies and a specialized decoupled head to accelerate convergence.",
@@ -68,7 +68,7 @@
           ],
           tech: ["PyTorch", "YOLOv8", "Deep Learning", "Computer Vision"],
           date: "2025.10.17", 
-          repoLink: "https://ieeexplore.ieee.org/document/11291274" // 建议放入你的仓库链接或论文下载链接
+          repoLink: "https://ieeexplore.ieee.org/document/11291274"
         },
         {
           id: 3,
@@ -101,7 +101,7 @@
           type: "research", 
           title: "Gender Disparities in Japan's Work-Life Balance",
           category: "Data Analysis / Statistics",
-          image: "/images/Japan_worker.png", // 建议使用报告中的 ARIMA 预测图或季节性波动图
+          image: "/images/Japan_worker.png",
           description: [
             "In this comprehensive data analysis project, I decrypted the gender-based structural differences in the Japanese labor market using non-parametric statistical methods.",
             "The research involved deep-dive processing of large-scale survey data, applying Kruskal-Wallis tests and Spearman correlation to identify how family roles influence working hours.",
@@ -110,7 +110,7 @@
           ],
           tech: ["Python", "SPSS","Time Series (ARIMA)", "Non-parametric Statistics", "Data Visualization"],
           date: "2025.01.10", 
-          repoLink: "/files/Paper_01.pdf" // 如果有代码仓库或PDF在线链接可以放入
+          repoLink: "/files/Paper_01.pdf" 
         },
 
         {
@@ -118,7 +118,7 @@
           type: "research", 
           title: "Machine Learning for Eco-Sustainability in Ethnic Villages",
           category: "Machine Learning / Ecology / Remote Sensing",
-          image: "/images/eco_viliage.png", // 建议使用论文中的“研究路线图”或“广西生态服务空间分布热力图”
+          image: "/images/eco_viliage.png", 
           description: [
             "As a core member of the URTP (University Student Research Training Program), I developed an integrated framework to evaluate the ecological security and Sustainable Development Goals (SDGs) of ethnic villages in my hometown, Guangxi(广西).",
             "The project utilizes InVEST models to quantify ecosystem services and employs advanced machine learning algorithms, including Random Forest and CNN-LSTM, to model the spatiotemporal coupling between ecology and economy.",
@@ -127,7 +127,7 @@
           ],
           tech: ["Python", "Random Forest", "CNN-LSTM", "InVEST Model", "Remote Sensing (GIS)"],
           date: "2025.05.20", 
-          repoLink: "/files/基于机器学习的民族村寨生态环境可持续发展研究.pdf" // 建议放入你的结题论文或答辩PPT的预览链接
+          repoLink: "/files/基于机器学习的民族村寨生态环境可持续发展研究.pdf" 
         },
 
         {
@@ -135,7 +135,7 @@
           type: "research", 
           title: "Product Design Disparities in Regional Health Code Systems",
           category: "Data Analysis / Statistics",
-          image: "/images/paper_heal_code.png", // 建议使用各省健康码对比图或研究框架图
+          image: "/images/paper_heal_code.png",
           description: [
             "As the group leader of the QMRP (Green Seedling Program), I conducted a comparative audit of digital health code architectures across multiple provinces including Guangxi, Jilin, and Hubei.",
             "The research decodes how regional policy variations influenced the UI/UX design and functional logic of digital governance tools during the 2022 pandemic period.",
@@ -474,7 +474,7 @@ function VirtualOS({ view, setView }) {
                   src={project.image} 
                   style={{ 
                     width: '100%', 
-                    height: '160px', // 使用了你要求的增大后的尺寸
+                    height: '160px', 
                     objectFit: 'cover', 
                     marginBottom: '12px', 
                     border: '1px solid #ff9ac2' 
@@ -787,7 +787,7 @@ function VirtualOS({ view, setView }) {
             <Center top position={[0, 0.5, 0]}> 
               <primitive 
                 object={scene} 
-                scale={[20, 20, 20]} // 根据你的模型大小调整，保持一致
+                scale={[20, 20, 20]} // 根据模型大小调整，保持一致
               />
             </Center>
           </group>
@@ -880,7 +880,7 @@ useEffect(() => {
     if (newView === 'room' && view === 'focus') {
       setIsMoving(true);
 
-      // ✅ 修复3：强力清理
+      // 强力清理
       gsap.killTweensOf(camera.position);
       if (controlsRef.current) {
         gsap.killTweensOf(controlsRef.current.target);
@@ -915,7 +915,7 @@ useEffect(() => {
             setView('room');
             setIsMoving(false);
             
-            // ✅ 修复4：必须在这里恢复控制器，否则用户无法操作
+            // 必须在这里恢复控制器，否则用户无法操作
             if (controlsRef.current) {
               controlsRef.current.enabled = true;
               controlsRef.current.update(); // 强制刷新一下控制器状态
