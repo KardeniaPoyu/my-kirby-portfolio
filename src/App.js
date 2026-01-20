@@ -100,7 +100,7 @@
             id: 6,
             type: "research", 
             title: "Gender Disparities in Japan's Work-Life Balance",
-            category: "Data Analysis / Statistics",
+            category: "Data Analysis",
             images: ["/images/Japan_worker.png"],
             description: [
               "In this comprehensive data analysis project, I decrypted the gender-based structural differences in the Japanese labor market using non-parametric statistical methods.",
@@ -117,7 +117,7 @@
             id: 7,
             type: "research", 
             title: "Machine Learning for Eco-Sustainability in Ethnic Villages",
-            category: "Machine Learning / Ecology / Remote Sensing",
+            category: "Machine Learning",
             images: ["/images/eco_viliage.png"], 
             description: [
               "As a core member of the URTP (University Student Research Training Program), I developed an integrated framework to evaluate the ecological security and Sustainable Development Goals (SDGs) of ethnic villages in my hometown, Guangxi(广西).",
@@ -134,7 +134,7 @@
             id: 8,
             type: "research", 
             title: "Product Design Disparities in Regional Health Code Systems",
-            category: "Data Analysis / Statistics",
+            category: "Data Analysis",
             images: ["/images/paper_heal_code.png"],
             description: [
               "As the group leader of the QMRP (Green Seedling Program), I conducted a comparative audit of digital health code architectures across multiple provinces including Guangxi, Jilin, and Hubei.",
