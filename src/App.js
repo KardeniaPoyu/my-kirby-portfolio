@@ -229,8 +229,6 @@
 
           return url
         }
-
-// 抽离的极简三角按钮样式
 const navArrowStyle = (dir) => ({
   position: 'absolute',
   top: '50%',
@@ -238,15 +236,17 @@ const navArrowStyle = (dir) => ({
   [dir]: '10px',
   background: 'none',
   border: 'none',
-  color: 'rgba(255, 154, 194, 0.5)',
+  color: 'rgba(255, 154, 194, 0.85)', // 🔥 提高不透明度
   cursor: 'pointer',
-  fontSize: '24px',
+  fontSize: '26px',                 // 🔥 微微放大
   zIndex: 10,
-  transition: '0.2s',
+  transition: 'all 0.2s ease',
   display: 'flex',
   alignItems: 'center',
-  padding: '0'
+  padding: '0',
+  textShadow: '0 0 6px rgba(255,154,194,0.6)' // 🔥 轻微霓虹
 });
+
 
 
         // ==================== 虚拟操作系统界面 ====================
