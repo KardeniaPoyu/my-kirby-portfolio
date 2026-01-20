@@ -80,7 +80,9 @@
             type: "code",
             title: "Psycho",
             category: "2D top-down game",
-            images: ["/images/7ce21d297ac5a0790e5b046381783ef9.png"],
+            images: ["/images/7ce21d297ac5a0790e5b046381783ef9.png",
+            "/images/psycho1.png",
+            ],
           description: [
               "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system during that gamecompany × COREBLAZER GAME JAM 2025.",
               "The dialogue framework supports Excel-based data configuration, enabling rapid content iteration without code modification, including branching narratives, portrait state control (grayscale/normal), and synchronized sound playback.",
