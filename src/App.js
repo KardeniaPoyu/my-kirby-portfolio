@@ -830,7 +830,7 @@ const navArrowStyle = (dir) => ({
           {[
             { name: 'GITHUB', url: 'https://github.com/KardeniaPoyu', color: '#fff', icon: 'pixelarticons:github' },
             { name: 'X/TWITTER', url: 'https://x.com/KardeniaPoyu', color: '#1DA1F2', icon: 'pixelarticons:contact' },
-            { name: 'BLOG', url: 'https://blog.yirong.site', color: '#ea4c89', icon: 'pixelarticons:article' },
+            { name: 'BLOG', url: 'https://blog.yirong.site', color: '#8B5CF6', icon: 'pixelarticons:article' },
             { name: 'BILIBILI', url: 'https://space.bilibili.com/15095535', color: '#fb7299', icon: 'ri:bilibili-fill' }
           ].map(link => (
             <a key={link.name} href={link.url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', width: '320px' }}>
