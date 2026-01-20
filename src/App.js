@@ -1249,21 +1249,87 @@ useEffect(() => {
       }
 
         function FloatingStars() {
-          return (
-            <group>
-              {/* 在电脑周围散布粒子 */}
-              <Sparkles count={50} scale={10} size={2} speed={0.4} color="#ffb7d5" />
-              
-              {/* 几个大的发光几何体 */}
-              <Float speed={4} rotationIntensity={1} floatIntensity={2}>
-                <mesh position={[-4, 3, -3]}>
-                  <octahedronGeometry args={[0.3]} />
-                  <meshStandardMaterial color="#87ceeb" emissive="#87ceeb" emissiveIntensity={1} />
-                </mesh>
-              </Float>
-            </group>
-          );
-        }
+  return (
+    <group>
+      {/* 主要粒子群 - 电脑周围 */}
+      <Sparkles count={50} scale={10} size={2} speed={0.4} color="#ffb7d5" />
+      
+      {/* 额外粒子层 - 房间上方漂浮 */}
+      <Sparkles 
+        count={80} 
+        scale={[15, 8, 15]} 
+        size={1.5} 
+        speed={0.2} 
+        opacity={0.6}
+        color="#ffffff" 
+        position={[0, 3, -2]}
+      />
+      
+      {/* 彩色粒子 - 左侧区域 */}
+      <Sparkles 
+        count={30} 
+        scale={8} 
+        size={2.5} 
+        speed={0.3} 
+        color="#87ceeb" 
+        position={[-3, 2, -3]}
+      />
+      
+      {/* 粉色粒子 - 右侧区域 */}
+      <Sparkles 
+        count={30} 
+        scale={8} 
+        size={2.5} 
+        speed={0.35} 
+        color="#ff9ac2" 
+        position={[3, 2, -3]}
+      />
+      
+      {/* 微小粒子 - 地面附近漂浮 */}
+      <Sparkles 
+        count={40} 
+        scale={[12, 2, 12]} 
+        size={1} 
+        speed={0.15} 
+        opacity={0.4}
+        color="#ffd6e8" 
+        position={[0, 0.5, 0]}
+      />
+      
+      {/* 发光几何体 1 */}
+      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
+        <mesh position={[-4, 3, -3]}>
+          <octahedronGeometry args={[0.3]} />
+          <meshStandardMaterial color="#87ceeb" emissive="#87ceeb" emissiveIntensity={1} />
+        </mesh>
+      </Float>
+      
+      {/* 发光几何体 2 - 右上角 */}
+      <Float speed={3} rotationIntensity={0.8} floatIntensity={1.5}>
+        <mesh position={[4, 3.5, -4]}>
+          <icosahedronGeometry args={[0.25]} />
+          <meshStandardMaterial color="#ff9ac2" emissive="#ff9ac2" emissiveIntensity={1.2} />
+        </mesh>
+      </Float>
+      
+      {/* 发光几何体 3 - 中央上方 */}
+      <Float speed={2.5} rotationIntensity={1.2} floatIntensity={1.8}>
+        <mesh position={[0, 4, -5]}>
+          <tetrahedronGeometry args={[0.2]} />
+          <meshStandardMaterial color="#ffd700" emissive="#ffd700" emissiveIntensity={1} />
+        </mesh>
+      </Float>
+      
+      {/* 发光几何体 4 - 左前方 */}
+      <Float speed={3.5} rotationIntensity={0.6} floatIntensity={1.2}>
+        <mesh position={[-2, 2, -1]}>
+          <dodecahedronGeometry args={[0.18]} />
+          <meshStandardMaterial color="#00ffcc" emissive="#00ffcc" emissiveIntensity={0.8} />
+        </mesh>
+      </Float>
+    </group>
+  );
+}
 
       // 外部装饰模型组件
       function Decoration({ url, position, scale = [1, 1, 1], rotation = [0, 0, 0] }) {
@@ -1400,7 +1466,7 @@ useEffect(() => {
               <Poster 
                 position={[-4.5, 2.5, -7.9]} 
                 rotation={[0, 0, 0]} 
-                textureUrl="https://picsum.photos/600/800" // 先用测试图，确保能跑通
+                textureUrl="images/kabi1.png" // 先用测试图，确保能跑通
                 onError={(e) => {
     e.target.src = '/kabi11.png';
   }}
