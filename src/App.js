@@ -155,16 +155,37 @@
       type: 'text',
       content: "Hi there ! If someone is reading this file, remember my name is Yirong Zhou (周 毅荣).I am currently an undergraduate student majoring in Information and Computing Science from China. My academic interests include computer graphics, AI, and game development."
     },
+    {
+      type: 'image',
+      url: '/images/微信图片_20260118135146_1059_4.jpg',
+      caption: 'Fig. 1. Me at Disenyland, Shanghai, China'
+    },
+    
     
     {
       type: 'text',
       content: "I have a strong passion for exploring how mathematics can be applied to create immersive digital experiences. Currently, I am focusing on real-time rendering and GPU programming."
     },
-    
+    {
+      type: 'timeline',
+      events: [
+          { year: '2026', title: 'Graduation', desc: 'Earned a Bachelor\'s degree in Information and Computing Science at Minzu University of China' },
+        { 
+          year: '2019', 
+          title: 'First Game Project', 
+          desc: 'My first true creation, the moment I realized my calling as a programmer.' 
+        },
+        { year: '2003', title: 'Birth', desc: 'Born in China' },
+      ]
+    },
+     {
+      type: 'text',
+      content: "My journey into game development began here. Built during a single week in high school, this was my first real project. It’s a tribute to my childhood obsession with Angry Birds, the game that captured my imagination and eventually guided me toward my career as a game programmer."
+    },
     {
       type: 'image',
-      url: '/images/微信图片_20260118135146_1059_4.jpg',
-      caption: 'Fig. 1. Me at Disenyland, Shanghai, China'
+      url: '/images/first_game.png',
+      caption: 'Fig. 2. My first game made with GameMaker 8.0 in 2019'
     },
     {
       type: 'text',
@@ -178,20 +199,13 @@
     {
       type: 'image',
       url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
-      caption: 'Fig. 2. Me at Shinsaibashi, Osaka, Japan'
+      caption: 'Fig. 3. Me at Shinsaibashi, Osaka, Japan'
     },
     {
       type: 'text',
       content: "Feel free to reach out to me for collaborations, discussions, or just to say hi! I'm always open to connecting with like-minded individuals."
     }
   ];
-
-  const timelineEvents = [
-  { year: '199x', title: '出生', desc: '降生于某地，开启人生篇章' },
-  { year: '201x', title: '高中毕业', desc: '结束基础教育，步入大学' },
-  { year: '202x', title: '大学毕业', desc: '获得学士学位，开始职业生涯' },
-  { year: '2024', title: 'Present', desc: '目前正在探索新的技术领域' },
-];
         // ===== 视频链接转 iframe =====
         function convertToEmbed(url) {
           if (!url) return ''
@@ -773,91 +787,6 @@
         &gt; USER_PROFILE_DOCUMENT == Yirong Zhou
       </h2>
 
-      {/* --- 居中交错时间线开始 --- */}
-<div style={{ position: 'relative', marginTop: '40px', paddingBottom: '40px' }}>
-  
-  {/* 标题（可选） */}
-  <h3 style={{ textAlign: 'center', color: '#ff9ac2', fontSize: '16px', marginBottom: '40px' }}>
-    // SYSTEM_CHRONOLOGY
-  </h3>
-
-  {/* 中间的那条竖线 */}
-  <div style={{
-    position: 'absolute',
-    left: '50%',
-    top: '40px',
-    bottom: 0,
-    width: '2px',
-    background: 'linear-gradient(to bottom, transparent, rgba(255,154,194,0.5), transparent)',
-    transform: 'translateX(-50%)'
-  }} />
-
-  {/* 循环渲染事件 */}
-  {timelineEvents.map((event, idx) => {
-    const isLeft = idx % 2 === 0; // 偶数在左，奇数在右
-    return (
-      <div key={idx} style={{
-        display: 'flex',
-        justifyContent: isLeft ? 'flex-end' : 'flex-start',
-        paddingLeft: isLeft ? '0' : '30px',
-        paddingRight: isLeft ? '30px' : '0',
-        width: '50%',
-        marginLeft: isLeft ? '0' : '50%',
-        position: 'relative',
-        marginBottom: '40px',
-        boxSizing: 'border-box'
-      }}>
-
-        {/* 节点上的发光圆点 */}
-        <div style={{
-          position: 'absolute',
-          [isLeft ? 'right' : 'left']: '-6px', // 刚好压在中线上
-          top: '4px',
-          width: '10px',
-          height: '10px',
-          borderRadius: '50%',
-          background: '#1a1a1a',
-          border: '2px solid #ff9ac2',
-          boxShadow: '0 0 8px #ff9ac2',
-          zIndex: 2
-        }} />
-
-        {/* 内容卡片 */}
-        <div style={{ 
-          textAlign: isLeft ? 'right' : 'left',
-          maxWidth: '280px' 
-        }}>
-          <div style={{ 
-            color: '#ff9ac2', 
-            fontFamily: 'monospace', 
-            fontWeight: 'bold',
-            fontSize: '14px' 
-          }}>
-            {event.year}
-          </div>
-          <div style={{ 
-            color: '#eee', 
-            fontSize: '15px', 
-            fontWeight: '600', 
-            margin: '5px 0' 
-          }}>
-            {event.title}
-          </div>
-          <div style={{ 
-            color: '#888', 
-            fontSize: '12px', 
-            lineHeight: '1.5' 
-          }}>
-            {event.desc}
-          </div>
-        </div>
-      </div>
-    );
-  })}
-</div>
-{/* --- 居中交错时间线结束 --- */}
-
-
       <div className="custom-scrollbar" style={{ 
         flex: 1, 
         overflowY: 'auto', 
@@ -877,7 +806,86 @@
               </p>
             );
           }
-          
+          if (item.type === 'timeline') {
+    // 自动排序：确保时间从上往下（最新到最旧）
+    const sortedEvents = [...item.events].sort((a, b) => parseInt(b.year) - parseInt(a.year));
+
+    return (
+      <div key={index} style={{ 
+        position: 'relative', 
+        width: '100%', 
+        margin: '60px 0',
+        padding: '0' 
+      }}>
+        {/* --- 闭合线段核心逻辑 --- */}
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          /* 从第一个圆点的中心开始，到最后一个圆点的中心结束 */
+          top: '12px', 
+          bottom: '70px', // 这个数值通常等于最后一个节点 marginBottom 的一半左右
+          width: '1px',
+          background: '#ff9ac2',
+          boxShadow: '0 0 5px rgba(255,154,194,0.5)',
+          transform: 'translateX(-50%)',
+          zIndex: 1
+        }} />
+
+        {sortedEvents.map((event, idx) => {
+          const isLeft = idx % 2 !== 0; 
+          const isLast = idx === sortedEvents.length - 1;
+
+          return (
+            <div key={idx} style={{
+              position: 'relative',
+              width: '100%',
+              display: 'flex',
+              justifyContent: isLeft ? 'flex-end' : 'flex-start',
+              /* 最后一个节点不需要底部间距，方便线条闭合 */
+              marginBottom: isLast ? '0' : '80px', 
+              minHeight: '60px'
+            }}>
+              
+              {/* 居中圆点 */}
+              <div style={{
+                position: 'absolute',
+                left: '50%',
+                top: '6px',
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                background: '#1a1a1a',
+                border: '2px solid #ff9ac2',
+                boxShadow: '0 0 10px #ff9ac2',
+                transform: 'translateX(-50%)',
+                zIndex: 2
+              }} />
+
+              {/* 内容区域 */}
+              <div style={{
+                width: '45%',
+                textAlign: isLeft ? 'right' : 'left',
+                padding: isLeft ? '0 30px 0 0' : '0 0 0 30px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: isLeft ? 'flex-end' : 'flex-start'
+              }}>
+                <div style={{ color: '#ff9ac2', fontFamily: 'monospace', fontSize: '14px', fontWeight: 'bold' }}>
+                  {event.year}
+                </div>
+                <div style={{ color: '#ffffff', fontSize: '18px', margin: '4px 0', fontWeight: '500' }}>
+                  {event.title}
+                </div>
+                <div style={{ color: '#aaa', fontSize: '13px', lineHeight: '1.6', maxWidth: '240px' }}>
+                  {event.desc}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
           if (item.type === 'image') {
             return (
               <div key={index} style={{ 
