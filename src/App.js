@@ -185,6 +185,13 @@
       content: "Feel free to reach out to me for collaborations, discussions, or just to say hi! I'm always open to connecting with like-minded individuals."
     }
   ];
+
+  const timelineEvents = [
+  { year: '199x', title: '出生', desc: '降生于某地，开启人生篇章' },
+  { year: '201x', title: '高中毕业', desc: '结束基础教育，步入大学' },
+  { year: '202x', title: '大学毕业', desc: '获得学士学位，开始职业生涯' },
+  { year: '2024', title: 'Present', desc: '目前正在探索新的技术领域' },
+];
         // ===== 视频链接转 iframe =====
         function convertToEmbed(url) {
           if (!url) return ''
@@ -487,8 +494,7 @@
         fontSize: '24px',              
         marginBottom: '30px',
         borderBottom: '2px solid #ff9ac2',
-        paddingBottom: '10px',
-        letterSpacing: '1px'           
+        paddingBottom: '10px'
       }}
     >
       &gt; {activeTab === 'projects' ? 'CODE_DATA_CORE' : 'PAPER_STREAM_BUFFER'}
@@ -767,7 +773,89 @@
         &gt; USER_PROFILE_DOCUMENT == Yirong Zhou
       </h2>
 
-      
+      {/* --- 居中交错时间线开始 --- */}
+<div style={{ position: 'relative', marginTop: '40px', paddingBottom: '40px' }}>
+  
+  {/* 标题（可选） */}
+  <h3 style={{ textAlign: 'center', color: '#ff9ac2', fontSize: '16px', marginBottom: '40px' }}>
+    // SYSTEM_CHRONOLOGY
+  </h3>
+
+  {/* 中间的那条竖线 */}
+  <div style={{
+    position: 'absolute',
+    left: '50%',
+    top: '40px',
+    bottom: 0,
+    width: '2px',
+    background: 'linear-gradient(to bottom, transparent, rgba(255,154,194,0.5), transparent)',
+    transform: 'translateX(-50%)'
+  }} />
+
+  {/* 循环渲染事件 */}
+  {timelineEvents.map((event, idx) => {
+    const isLeft = idx % 2 === 0; // 偶数在左，奇数在右
+    return (
+      <div key={idx} style={{
+        display: 'flex',
+        justifyContent: isLeft ? 'flex-end' : 'flex-start',
+        paddingLeft: isLeft ? '0' : '30px',
+        paddingRight: isLeft ? '30px' : '0',
+        width: '50%',
+        marginLeft: isLeft ? '0' : '50%',
+        position: 'relative',
+        marginBottom: '40px',
+        boxSizing: 'border-box'
+      }}>
+
+        {/* 节点上的发光圆点 */}
+        <div style={{
+          position: 'absolute',
+          [isLeft ? 'right' : 'left']: '-6px', // 刚好压在中线上
+          top: '4px',
+          width: '10px',
+          height: '10px',
+          borderRadius: '50%',
+          background: '#1a1a1a',
+          border: '2px solid #ff9ac2',
+          boxShadow: '0 0 8px #ff9ac2',
+          zIndex: 2
+        }} />
+
+        {/* 内容卡片 */}
+        <div style={{ 
+          textAlign: isLeft ? 'right' : 'left',
+          maxWidth: '280px' 
+        }}>
+          <div style={{ 
+            color: '#ff9ac2', 
+            fontFamily: 'monospace', 
+            fontWeight: 'bold',
+            fontSize: '14px' 
+          }}>
+            {event.year}
+          </div>
+          <div style={{ 
+            color: '#eee', 
+            fontSize: '15px', 
+            fontWeight: '600', 
+            margin: '5px 0' 
+          }}>
+            {event.title}
+          </div>
+          <div style={{ 
+            color: '#888', 
+            fontSize: '12px', 
+            lineHeight: '1.5' 
+          }}>
+            {event.desc}
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</div>
+{/* --- 居中交错时间线结束 --- */}
 
 
       <div className="custom-scrollbar" style={{ 
