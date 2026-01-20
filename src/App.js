@@ -6,7 +6,8 @@
         import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib';
         import { Sparkles } from '@react-three/drei';
         import { useTexture } from '@react-three/drei';
-        import { Icon } from '@iconify/react';
+        import LocalIcon from './components/LocalIcon';
+        
 
 
 
@@ -229,37 +230,6 @@
           return url
         }
 
-        const TIMELINE_DATA = [
-  {
-    year: '2003',
-    title: 'BORN',
-    subtitle: 'Born in Guangxi, China',
-    desc: 'Born and raised in Guangxi, where my curiosity for science and technology began.',
-    color: '#87ceeb'
-  },
-  {
-    year: '2021',
-    title: 'UNIVERSITY',
-    subtitle: 'Information & Computing Science',
-    desc: 'Entered university majoring in Information and Computing Science, focusing on mathematics and computer science foundations.',
-    color: '#ff9ac2'
-  },
-  {
-    year: '2024',
-    title: 'RESEARCH & GAME DEV',
-    subtitle: 'Research / Game Jam / Graphics',
-    desc: 'Engaged in academic research, multiple game jams, and real-time rendering exploration.',
-    color: '#00ffcc'
-  },
-  {
-    year: '2026',
-    title: 'GRADUATION',
-    subtitle: 'Undergraduate Graduation',
-    desc: 'Graduated with a strong interest in computer graphics, AI, and game development.',
-    color: '#ff9ac2'
-  }
-];
-
 // 抽离的极简三角按钮样式
 const navArrowStyle = (dir) => ({
   position: 'absolute',
@@ -292,6 +262,7 @@ const navArrowStyle = (dir) => ({
     useEffect(() => {
       if (view === 'room') {
         setSelectedProject(null);
+         setCurrentImgIndex(0);
         setVideoUrl(null);
       }
     }, [view]);
@@ -473,7 +444,7 @@ const navArrowStyle = (dir) => ({
       ].map(tab => (
         <button
           key={tab.id}
-          onClick={() => { setActiveTab(tab.id); setSelectedProject(null);setVideoUrl(null); }}
+          onClick={() => { setActiveTab(tab.id); setSelectedProject(null);setVideoUrl(null);setCurrentImgIndex(0); }}
           style={{
             width: '120px',
             height: '80px',
@@ -492,7 +463,7 @@ const navArrowStyle = (dir) => ({
           }}
         >
           {/* 替换这里的 Emoji 渲染 */}
-          <Icon 
+          <LocalIcon 
             icon={tab.icon} 
             style={{ fontSize: '28px' }} // 像素图标可以稍微大一点，视觉更清晰
           />
@@ -524,7 +495,7 @@ const navArrowStyle = (dir) => ({
       boxShadow: isReturnHover ? '0 0 10px rgba(135, 206, 235, 0.5)' : 'none'
     }}
   >
-    <Icon icon="pixelarticons:chevron-left" /> RETURN_
+    <LocalIcon icon="pixelarticons:chevron-left" /> RETURN_
   </button>
     </div>
 
@@ -560,7 +531,10 @@ const navArrowStyle = (dir) => ({
         .map(project => (
           <div
             key={project.id}
-            onClick={() => setSelectedProject(project)}
+            onClick={() => {
+    setSelectedProject(project);
+    setCurrentImgIndex(0);
+  }}
             style={{
               border: '2px solid #ff9ac2',
               padding: '16px',               
@@ -582,6 +556,8 @@ const navArrowStyle = (dir) => ({
       ? project.images[0] 
       : (project.images || project.image || "/api/placeholder/600/400")
   }
+               loading="lazy"
+              decoding="async"
               style={{
                 width: '100%',
                 height: '160px',
@@ -676,10 +652,10 @@ const navArrowStyle = (dir) => ({
                   {selectedProject.images.length > 1 && (
                     <>
                       <button onClick={prevImg} style={navArrowStyle('left')}>
-                        <Icon icon="pixelarticons:chevron-left" />
+                        <LocalIcon icon="pixelarticons:chevron-left" />
                       </button>
                       <button onClick={nextImg} style={navArrowStyle('right')}>
-                        <Icon icon="pixelarticons:chevron-right" />
+                        <LocalIcon icon="pixelarticons:chevron-right" />
                       </button>
 
                       {/* 圆点指示器 (Dots Indicator) */}
@@ -833,7 +809,7 @@ const navArrowStyle = (dir) => ({
                   window.location.href = `mailto:yirongyiburong@gmail.com?subject=${encodeURIComponent(emailForm.subject)}&body=${encodeURIComponent(emailForm.body)}`;
                 }}
               >
-                <Icon icon="pixelarticons:mail-arrow-right" /> SEND_MESSAGE.SH
+                <LocalIcon icon="pixelarticons:mail-arrow-right" /> SEND_MESSAGE.SH
               </PixelButton>
             </div>
           </div>
@@ -870,10 +846,10 @@ const navArrowStyle = (dir) => ({
                 e.currentTarget.style.boxShadow = 'none';
               }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <Icon icon={link.icon} style={{ fontSize: '20px' }} /> 
+                  <LocalIcon icon={link.icon} style={{ fontSize: '20px' }} /> 
                   {link.name}
                 </span>
-                <Icon icon="pixelarticons:arrow-right" />
+                <LocalIcon icon="pixelarticons:arrow-right" />
               </div>
             </a>
           ))}
