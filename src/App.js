@@ -1108,17 +1108,19 @@ const navArrowStyle = (dir) => ({
         useGLTF.preload('/models/device.glb');
 
         // ==================== 场景管理 ====================
-        RectAreaLightUniformsLib.init();
         function Scene() {
     const [isMoving, setIsMoving] = useState(false);
     const { camera } = useThree();
     const [view, setView] = useState('room');
     const controlsRef = useRef();
     const initialCameraPosition = useRef(new THREE.Vector3(0, 2, 5));
+
+
     // 移除 animationTimeouts，改用 GSAP 自带的清理
 
     // 确保引入 useEffect
   useEffect(() => {
+     RectAreaLightUniformsLib.init();
     // 只有当正在移动时才开启计时器
     if (isMoving) {
       // 设置一个比动画时长(1.2s)稍长的强制解锁时间 (比如 2秒)
