@@ -198,7 +198,7 @@
 
     {
       type: 'text',
-      content: "I have visited Japan multiple times and fallen in love with its unique blend of tradition and modernity. The vibrant city life, rich history, and warm people have left a lasting impression on me. So I hope to work in Japan and learn more about game development there. Kirby is one of my favorite character!"
+      content: "I have visited Japan multiple times and fallen in love with its unique blend of tradition and modernity. The vibrant city life, rich history, and warm people have left a lasting impression on me. So I hope to work in Japan and learn more about game development there. Kirby is one of my favorite characters!"
     },
     {
       type: 'image',
