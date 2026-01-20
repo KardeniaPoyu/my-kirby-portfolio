@@ -39,7 +39,7 @@
             id: 1,
             type: "code", // 标志为代码作品
             title: "Hotel404",
-            category: "Game Development",
+            category: "2D third-person exploration horror game",
             image: "/images/434f2cab678457d65590ea3b7cba20b2.png",
             description: [
     "As a core programmer, I contributed significantly to the development of Hotel404 during the TapTap Spotlight Game Jam 2025, a third-person exploration horror game created using Unity and C#.",
@@ -75,7 +75,7 @@
             id: 3,
             type: "code",
             title: "Psycho",
-            category: "Game Development",
+            category: "2D top-down game",
             image: "/images/7ce21d297ac5a0790e5b046381783ef9.png",
           description: [
               "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system during that gamecompany × COREBLAZER GAME JAM 2025.",
@@ -479,48 +479,90 @@
     <div style={{ flex: 1, padding: '40px', overflowY: 'auto', position: 'relative', zIndex: 5 }}>
       
       {/* 1. 项目/研究列表视图 - 共享同一个 UI 结构 */}
-      {(activeTab === 'projects' || activeTab === 'research') && !selectedProject && (
-        <div className="fade-in">
-          <h2 style={{ color: '#ff9ac2', fontSize: '24px', marginBottom: '30px', borderBottom: '2px solid #ff9ac2', paddingBottom: '10px' }}>
-            &gt; {activeTab === 'projects' ? 'CODE_DATA_CORE' : 'PAPER_STREAM_BUFFER'}
-          </h2>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '25px' }}>
-            {PROJECTS_ARRAY
-              // 核心逻辑：根据当前选中的 tab 过滤显示的数据
-              .filter(item => activeTab === 'projects' ? item.type === 'code' : item.type === 'research')
-              .map(project => (
-                <div 
-                  key={project.id}
-                  onClick={() => setSelectedProject(project)}
-                  style={{
-                    border: '2px solid #ff9ac2',
-                    padding: '12px',
-                    cursor: 'pointer',
-                    background: 'rgba(255,154,194,0.05)',
-                    transition: 'all 0.2s'
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,154,194,0.2)'}
-                  onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,154,194,0.05)'}
-                >
-                  <img 
-                    src={project.image} 
-                    style={{ 
-                      width: '100%', 
-                      height: '160px', 
-                      objectFit: 'cover', 
-                      marginBottom: '12px', 
-                      border: '1px solid #ff9ac2' 
-                    }} 
-                    alt="" 
-                  />
-                  <div style={{ fontSize: '12px', color: '#fff' }}>{project.title}</div>
-                  <div style={{ fontSize: '8px', color: '#ff9ac2', marginTop: '5px' }}>{project.category}</div>
-                </div>
-              ))}
+{(activeTab === 'projects' || activeTab === 'research') && !selectedProject && (
+  <div className="fade-in">
+    <h2
+      style={{
+        color: '#ff9ac2',
+        fontSize: '24px',              
+        marginBottom: '30px',
+        borderBottom: '2px solid #ff9ac2',
+        paddingBottom: '10px',
+        letterSpacing: '1px'           
+      }}
+    >
+      &gt; {activeTab === 'projects' ? 'CODE_DATA_CORE' : 'PAPER_STREAM_BUFFER'}
+    </h2>
+
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '25px'
+      }}
+    >
+      {PROJECTS_ARRAY
+        .filter(item =>
+          activeTab === 'projects' ? item.type === 'code' : item.type === 'research'
+        )
+        .map(project => (
+          <div
+            key={project.id}
+            onClick={() => setSelectedProject(project)}
+            style={{
+              border: '2px solid #ff9ac2',
+              padding: '16px',               
+              cursor: 'pointer',
+              background: 'rgba(255,154,194,0.05)',
+              transition: 'all 0.2s'
+            }}
+            onMouseEnter={e =>
+              (e.currentTarget.style.background = 'rgba(255,154,194,0.2)')
+            }
+            onMouseLeave={e =>
+              (e.currentTarget.style.background = 'rgba(255,154,194,0.05)')
+            }
+          >
+            <img
+              src={project.image}
+              style={{
+                width: '100%',
+                height: '160px',
+                objectFit: 'cover',
+                marginBottom: '14px',
+                border: '1px solid #ff9ac2'
+              }}
+              alt=""
+            />
+
+            {/* 项目标题 */}
+            <div
+              style={{
+                fontSize: '14px',             
+                color: '#fff',
+                lineHeight: '1.4'
+              }}
+            >
+              {project.title}
+            </div>
+
+            {/* 分类 */}
+            <div
+              style={{
+                fontSize: '10px',             
+                color: '#ff9ac2',
+                marginTop: '6px',
+                letterSpacing: '0.5px'
+              }}
+            >
+              {project.category}
+            </div>
           </div>
-        </div>
-      )}
+        ))}
+    </div>
+  </div>
+)}
+
 
                   {/* 2. 项目详情视图 */}
     {(activeTab === 'projects' || activeTab === 'research') && selectedProject && (
@@ -539,7 +581,7 @@
             <img src={selectedProject.image} style={{ width: '100%', border: '3px solid #ff9ac2', boxShadow: '0 0 20px rgba(255,154,194,0.3)' }} alt="" />
             <div style={{ marginTop: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {selectedProject.tech.map(t => (
-                <span key={t} style={{ fontSize: '8px', padding: '4px 8px', background: '#3d253a', border: '1px solid #ff9ac2' }}>{t}</span>
+                <span key={t} style={{ fontSize: ' 10px', padding: '4px 8px', background: '#3d253a', border: '1px solid #ff9ac2' }}>{t}</span>
               ))}
             </div>
           </div>
@@ -727,8 +769,6 @@
 
       
 
-      {/* 🔽 时间线 */}
-      <VerticalTimeline data={TIMELINE_DATA} />
 
       <div className="custom-scrollbar" style={{ 
         flex: 1, 
@@ -848,96 +888,6 @@
             </div>
           );
         }
-
-        function VerticalTimeline({ data }) {
-  return (
-    <div style={{
-      position: 'relative',
-      margin: '40px 0 60px 20px',
-      paddingLeft: '40px'
-    }}>
-      
-      {/* 中央竖线 */}
-      <div style={{
-        position: 'absolute',
-        left: '18px',
-        top: 0,
-        bottom: 0,
-        width: '2px',
-        background: 'linear-gradient(to top, #ff9ac2, rgba(255,154,194,0.1))'
-      }} />
-
-      {/* 时间节点（从下往上显示） */}
-      {data.slice().reverse().map((item, index) => (
-        <div
-          key={index}
-          style={{
-            position: 'relative',
-            marginBottom: '40px',
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '20px'
-          }}
-        >
-          {/* 时间点圆点 */}
-          <div style={{
-            position: 'absolute',
-            left: '-2px',
-            top: '4px',
-            width: '14px',
-            height: '14px',
-            background: item.color,
-            border: '2px solid #000',
-            boxShadow: `0 0 10px ${item.color}`
-          }} />
-
-          {/* 右侧内容框 */}
-          <div style={{
-            padding: '12px 16px',
-            border: `1px solid ${item.color}`,
-            background: 'rgba(0,0,0,0.3)',
-            boxShadow: `0 0 15px rgba(0,0,0,0.6)`,
-            width: '100%'
-          }}>
-            <div style={{
-              fontSize: '10px',
-              color: item.color,
-              marginBottom: '6px',
-              fontFamily: '"Press Start 2P"'
-            }}>
-              {item.year}
-            </div>
-
-            <div style={{
-              fontSize: '14px',
-              color: '#fff',
-              marginBottom: '4px'
-            }}>
-              &gt; {item.title}
-            </div>
-
-            <div style={{
-              fontSize: '11px',
-              color: item.color,
-              opacity: 0.85,
-              marginBottom: '8px'
-            }}>
-              {item.subtitle}
-            </div>
-
-            <div style={{
-              fontSize: '12px',
-              lineHeight: '1.6',
-              color: '#ddd'
-            }}>
-              {item.desc}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 
         // ==================== 3D 模型加载 ====================
