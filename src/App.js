@@ -918,9 +918,8 @@
     const [view, setView] = useState('room');
     const controlsRef = useRef();
     const initialCameraPosition = useRef(new THREE.Vector3(0, 2, 5));
-    // 建议：移除 animationTimeouts，改用 GSAP 自带的清理
+    // 移除 animationTimeouts，改用 GSAP 自带的清理
 
-    // ✅ 修复1：组件卸载或重渲染时的安全阀
     // 确保引入 useEffect
   useEffect(() => {
     // 只有当正在移动时才开启计时器
