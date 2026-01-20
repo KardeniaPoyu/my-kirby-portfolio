@@ -38,11 +38,11 @@
           {
             id: 1,
             type: "code", // 标志为代码作品
-            title: "<TapTap Spotlight Game Jam 2025> Hotel404",
+            title: "Hotel404",
             category: "Game Development",
             image: "/images/434f2cab678457d65590ea3b7cba20b2.png",
             description: [
-    "As a core programmer, I participated in the development of 'Hotel404', a third-person exploration horror game created using Unity and C#.",
+    "As a core programmer, I contributed significantly to the development of Hotel404 during the TapTap Spotlight Game Jam 2025, a third-person exploration horror game created using Unity and C#.",
     "In this game, players take on the role of a detective investigating a mysterious hotel filled with supernatural occurrences.",
   "I was responsible for integrating player-related resources such as health and buffs, and independently implemented a JSON-based save and load system featuring save previews and basic data encryption.",
     "Based on this system, I further developed a flexible level structure using a two-dimensional array to represent an n-by-n room layout, allowing designers to freely configure rooms and insert narrative dialogue prompts into any room.",
@@ -57,11 +57,12 @@
           {
             id: 2,
             type: "research", // 标志为研究作品
-            title: "<CVIP 2025> YOLOv8-MAH: A New Vehicle Detection Method",
+            title: "YOLOv8-MAH: A New Vehicle Detection Method",
             category: "Computer Vision / Deep Learning",
             image: "/images/output_8_0.png", 
             description: [
               "As the first author, I proposed YOLOv8-MAH, an enhanced vehicle detection model designed to address challenges like complex backgrounds and small object occlusion in urban traffic.",
+              "The research was presented at CVIP 2025 (IEEE Conference on Computer Vision and Image Processing) and is published in the official proceedings.",
               "The model integrates a Multi-Head Self-Attention (MHSA) mechanism into the backbone to capture global dependencies and a specialized decoupled head to accelerate convergence.",
               "I implemented an optimized Mosaic-9 data augmentation strategy, significantly improving the detection accuracy for small-scale vehicle objects in high-density scenarios.",
               "The research achieved a mAP@0.5 of 81.3% on the UA-DETRAC dataset and utilizes Grad-CAM heatmaps to provide visual interpretability of the model's decision-making process."
@@ -73,11 +74,11 @@
           {
             id: 3,
             type: "code",
-            title: "<thatgamecompany × COREBLAZER GAME JAM 2025> Psycho",
+            title: "Psycho",
             category: "Game Development",
             image: "/images/7ce21d297ac5a0790e5b046381783ef9.png",
           description: [
-              "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system.",
+              "As a sole programmer in a five-person team, I developed this 2D top-down exploration game featuring a modular and production-ready dialogue system during that gamecompany × COREBLAZER GAME JAM 2025.",
               "The dialogue framework supports Excel-based data configuration, enabling rapid content iteration without code modification, including branching narratives, portrait state control (grayscale/normal), and synchronized sound playback.",
               "The protagonist is accompanied by an AI-controlled pet dog whose behavior is driven by a custom A* pathfinding implementation, allowing autonomous navigation when summoned and stochastic roaming during idle states with stable runtime performance.",
               "Developed during my first Game Jam, I independently built the core systems from scratch; despite the project remaining unfinished due to team dissolution, the experience significantly strengthened my skills in system architecture, algorithm implementation, and high-pressure collaborative development."
@@ -208,6 +209,38 @@
 
           return url
         }
+
+        const TIMELINE_DATA = [
+  {
+    year: '2003',
+    title: 'BORN',
+    subtitle: 'Born in Guangxi, China',
+    desc: 'Born and raised in Guangxi, where my curiosity for science and technology began.',
+    color: '#87ceeb'
+  },
+  {
+    year: '2021',
+    title: 'UNIVERSITY',
+    subtitle: 'Information & Computing Science',
+    desc: 'Entered university majoring in Information and Computing Science, focusing on mathematics and computer science foundations.',
+    color: '#ff9ac2'
+  },
+  {
+    year: '2024',
+    title: 'RESEARCH & GAME DEV',
+    subtitle: 'Research / Game Jam / Graphics',
+    desc: 'Engaged in academic research, multiple game jams, and real-time rendering exploration.',
+    color: '#00ffcc'
+  },
+  {
+    year: '2026',
+    title: 'GRADUATION',
+    subtitle: 'Undergraduate Graduation',
+    desc: 'Graduated with a strong interest in computer graphics, AI, and game development.',
+    color: '#ff9ac2'
+  }
+];
+
 
         // ==================== 虚拟操作系统界面 ====================
   function VirtualOS({ view, setView }) {
@@ -693,6 +726,10 @@
       </h2>
 
       
+
+      {/* 🔽 时间线 */}
+      <VerticalTimeline data={TIMELINE_DATA} />
+
       <div className="custom-scrollbar" style={{ 
         flex: 1, 
         overflowY: 'auto', 
@@ -811,6 +848,97 @@
             </div>
           );
         }
+
+        function VerticalTimeline({ data }) {
+  return (
+    <div style={{
+      position: 'relative',
+      margin: '40px 0 60px 20px',
+      paddingLeft: '40px'
+    }}>
+      
+      {/* 中央竖线 */}
+      <div style={{
+        position: 'absolute',
+        left: '18px',
+        top: 0,
+        bottom: 0,
+        width: '2px',
+        background: 'linear-gradient(to top, #ff9ac2, rgba(255,154,194,0.1))'
+      }} />
+
+      {/* 时间节点（从下往上显示） */}
+      {data.slice().reverse().map((item, index) => (
+        <div
+          key={index}
+          style={{
+            position: 'relative',
+            marginBottom: '40px',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '20px'
+          }}
+        >
+          {/* 时间点圆点 */}
+          <div style={{
+            position: 'absolute',
+            left: '-2px',
+            top: '4px',
+            width: '14px',
+            height: '14px',
+            background: item.color,
+            border: '2px solid #000',
+            boxShadow: `0 0 10px ${item.color}`
+          }} />
+
+          {/* 右侧内容框 */}
+          <div style={{
+            padding: '12px 16px',
+            border: `1px solid ${item.color}`,
+            background: 'rgba(0,0,0,0.3)',
+            boxShadow: `0 0 15px rgba(0,0,0,0.6)`,
+            width: '100%'
+          }}>
+            <div style={{
+              fontSize: '10px',
+              color: item.color,
+              marginBottom: '6px',
+              fontFamily: '"Press Start 2P"'
+            }}>
+              {item.year}
+            </div>
+
+            <div style={{
+              fontSize: '14px',
+              color: '#fff',
+              marginBottom: '4px'
+            }}>
+              &gt; {item.title}
+            </div>
+
+            <div style={{
+              fontSize: '11px',
+              color: item.color,
+              opacity: 0.85,
+              marginBottom: '8px'
+            }}>
+              {item.subtitle}
+            </div>
+
+            <div style={{
+              fontSize: '12px',
+              lineHeight: '1.6',
+              color: '#ddd'
+            }}>
+              {item.desc}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
         // ==================== 3D 模型加载 ====================
         function ComputerModel({ onClick, view }) {
