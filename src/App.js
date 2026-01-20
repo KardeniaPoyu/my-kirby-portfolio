@@ -6,7 +6,7 @@
         import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib';
         import { Sparkles } from '@react-three/drei';
         import { useTexture } from '@react-three/drei';
-        import { Icon } from './components/Icon.tsx';
+        import { Icon } from '@iconify/react';
 
 
 
