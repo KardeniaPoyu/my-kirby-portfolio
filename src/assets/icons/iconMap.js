@@ -12,6 +12,8 @@ import mailArrowRight from './pixelarticons--mail-arrow-right.svg'
 import user from './pixelarticons--user.svg'
 import bilibili from './ri--bilibili-fill.svg'
 import mail from './pixelarticons--mail.svg'
+import laptop from './pixelarticons--device-laptop.svg'
+import handsup from './pixelarticons--human-handsup.svg'
 
 export const iconMap = {
   'pixelarticons:github': pixelGithub,
@@ -26,6 +28,8 @@ export const iconMap = {
   'pixelarticons:mail-arrow-right': mailArrowRight,
   'pixelarticons:user': user,
   'pixelarticons:mail' : mail,
+  'pixelarticons:laptop': laptop,
+  'pixelarticons:handsup' : handsup,
   'ri:github-fill': github,
   'ri:bilibili-fill': bilibili,
 }

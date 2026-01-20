@@ -64,7 +64,10 @@
             type: "research", // 标志为研究作品
             title: "YOLOv8-MAH: A New Vehicle Detection Method",
             category: "Computer Vision / Deep Learning",
-            images: ["/images/output_8_0.png"], 
+            images: ["/images/output_8_0.png",
+            "/images/yolofig4.png",
+            "/images/yolofig5.png",
+            ], 
             description: [
               "As the first author, I proposed YOLOv8-MAH, an enhanced vehicle detection model designed to address challenges like complex backgrounds and small object occlusion in urban traffic.",
               "The research was presented at CVIP 2025 (IEEE Conference on Computer Vision and Image Processing) and is published in the official proceedings.",
@@ -118,7 +121,9 @@
             type: "research", 
             title: "Machine Learning for Eco-Sustainability in Ethnic Villages",
             category: "Machine Learning",
-            images: ["/images/eco_viliage.png"], 
+            images: ["/images/eco_viliage.png",
+            "/images/guangxi1.png"
+            ], 
             description: [
               "As a core member of the URTP (University Student Research Training Program), I developed an integrated framework to evaluate the ecological security and Sustainable Development Goals (SDGs) of ethnic villages in my hometown, Guangxi(广西).",
               "The project utilizes InVEST models to quantify ecosystem services and employs advanced machine learning algorithms, including Random Forest and CNN-LSTM, to model the spatiotemporal coupling between ecology and economy.",
@@ -1392,6 +1397,9 @@ const navArrowStyle = (dir) => ({
                 position={[-4.5, 2.5, -7.9]} 
                 rotation={[0, 0, 0]} 
                 textureUrl="https://picsum.photos/600/800" // 先用测试图，确保能跑通
+                onError={(e) => {
+    e.target.src = '/kabi11.png';
+  }}
               />
               </Suspense>
               
@@ -1424,10 +1432,292 @@ const navArrowStyle = (dir) => ({
             </>
           );
         }
+        // ==================== 首次访问介绍UI ====================
+        function IntroOverlay({ onClose }) {
+          const [step, setStep] = useState(0);
+          
+          const steps = [
+            {
+              title: "YIRONG_PORTFOLIO_INTRO",
+              content: "Hi! I am Yirong Zhou. This is my interactive portfolio.Thank you for visiting! :) " + "※ 本ポートフォリオは英語版のみとなっています。",
+              icon: "pixelarticons:user"
+            },
+            {
+              title: "HOW_TO_NAVIGATE",
+              content: "Use your mouse to rotate the camera and explore this kirby style room and click on the computer screen to access my portfolio interface.",
+              icon: "pixelarticons:laptop"
+            },
+            {
+              title: "READY_TO_START",
+              content: "Feel free to explore my projects, research papers, and know more about me. Enjoy your visit!",
+              icon: "pixelarticons:handsup"
+            }
+          ];
+
+          const currentStep = steps[step];
+
+          return (
+            <div style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              background: `
+  radial-gradient(circle at center, rgba(60,30,70,0.85), rgba(10,5,15,0.98)),
+  repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  )
+`,
+backdropFilter: 'blur(12px)',
+
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              animation: 'fadeIn 0.5s ease'
+            }}>
+              {/* 中心卡片 */}
+              <div style={{
+                background: '#2a1a2f',
+                border: '4px solid #ff9ac2',
+                borderRadius: '20px',
+                padding: '50px 60px',
+                maxWidth: '600px',
+                boxShadow: '0 0 60px rgba(255, 154, 194, 0.5), inset 0 0 30px rgba(0,0,0,0.5)',
+                position: 'relative',
+                animation: 'slideUp 0.6s ease, float 4s ease-in-out infinite',
+
+              }}>
+                
+                {/* 顶部装饰线 */}
+                <div style={{
+                  position: 'absolute',
+                  top: '20px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '80%',
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent, #ff9ac2, transparent)'
+                }} />
+
+                {/* 图标 */}
+                <div style={{
+                  textAlign: 'center',
+                  marginBottom: '30px'
+                }}>
+                  <div style={{
+  display: 'inline-block',
+  padding: '22px',
+  borderRadius: '50%',
+  border: '2px solid #ff9ac2',
+  boxShadow: `
+    0 0 20px rgba(255,154,194,0.6),
+    inset 0 0 15px rgba(255,154,194,0.3)
+  `,
+  position: 'relative'
+}}>
+<div style={{
+  position: 'absolute',
+  inset: '-6px',
+  borderRadius: '50%',
+  border: '1px dashed rgba(255,154,194,0.5)',
+  animation: 'spin 12s linear infinite'
+}} />
+
+                    <LocalIcon icon={currentStep.icon} style={{ fontSize: '48px', color: '#ff9ac2' }} />
+                  </div>
+                </div>
+
+                {/* 标题 */}
+                <h2 style={{
+                  fontFamily: '"Press Start 2P"',
+                  fontSize: '18px',
+                  color: '#ff9ac2',
+                  textAlign: 'center',
+                  marginBottom: '25px',
+                  letterSpacing: '2px'
+                }}>
+                  {currentStep.title}
+                </h2>
+
+                {/* 内容 */}
+                <p style={{
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontSize: '16px',
+                  color: '#fff',
+                  lineHeight: '1.8',
+                  textAlign: 'center',
+                  marginBottom: '40px',
+                  opacity: 0.9
+                }}>
+                  {currentStep.content}
+                </p>
+
+                {/* 进度指示器 */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  marginBottom: '30px'
+                }}>
+                  {steps.map((_, idx) => (
+                    <div key={idx} style={{
+                      width: '10px',
+                      height: '10px',
+                      borderRadius: '50%',
+                      background: idx === step ? '#ff9ac2' : 'rgba(255, 154, 194, 0.3)',
+                      boxShadow: idx === step ? '0 0 10px #ff9ac2' : 'none',
+                      transition: 'all 0.3s'
+                    }} />
+                  ))}
+                </div>
+
+                {/* 按钮区域 */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '15px'
+                }}>
+                  {step < steps.length - 1 ? (
+                    <>
+                      <button
+                        onClick={onClose}
+                        style={{
+                          padding: '12px 24px',
+                          background: 'transparent',
+                          border: '2px solid #87ceeb',
+                          color: '#87ceeb',
+                          fontFamily: '"Press Start 2P"',
+                          fontSize: '10px',
+                          cursor: 'pointer',
+                          borderRadius: '5px',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseEnter={e => {
+                          e.target.style.background = '#87ceeb';
+                          e.target.style.color = '#000';
+                        }}
+                        onMouseLeave={e => {
+                          e.target.style.background = 'transparent';
+                          e.target.style.color = '#87ceeb';
+                        }}
+                      >
+                        SKIP
+                      </button>
+                      <button
+                        onClick={() => setStep(step + 1)}
+                        style={{
+                          padding: '12px 30px',
+                          background: '#ff9ac2',
+                          border: '2px solid #ff9ac2',
+                          color: '#000',
+                          fontFamily: '"Press Start 2P"',
+                          fontSize: '10px',
+                          cursor: 'pointer',
+                          borderRadius: '5px',
+                          boxShadow: '0 0 20px rgba(255, 154, 194, 0.5)',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseEnter={e => {
+                          e.target.style.transform = 'translateY(-2px)';
+                          e.target.style.boxShadow = '0 0 30px rgba(255, 154, 194, 0.8)';
+                        }}
+                        onMouseLeave={e => {
+                          e.target.style.transform = 'translateY(0)';
+                          e.target.style.boxShadow = '0 0 20px rgba(255, 154, 194, 0.5)';
+                        }}
+                      >
+                        NEXT →
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      onClick={onClose}
+                      style={{
+                        padding: '12px 40px',
+                        background: '#ff9ac2',
+                        border: '2px solid #ff9ac2',
+                        color: '#000',
+                        fontFamily: '"Press Start 2P"',
+                        fontSize: '10px',
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        boxShadow: '0 0 20px rgba(255, 154, 194, 0.5)',
+                        transition: 'all 0.2s'
+                      }}
+                      onMouseEnter={e => {
+                        e.target.style.transform = 'scale(1.05)';
+                        e.target.style.boxShadow = '0 0 30px rgba(255, 154, 194, 0.8)';
+                      }}
+                      onMouseLeave={e => {
+                        e.target.style.transform = 'scale(1)';
+                        e.target.style.boxShadow = '0 0 20px rgba(255, 154, 194, 0.5)';
+                      }}
+                    >
+                      START EXPLORING!
+                    </button>
+                  )}
+                </div>
+
+                {/* 底部装饰线 */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '20px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '80%',
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent, #ff9ac2, transparent)'
+                }} />
+              </div>
+
+              {/* CSS动画 */}
+              <style>{`
+                @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+                }
+                @keyframes slideUp {
+                  from { 
+                    opacity: 0;
+                    transform: translateY(30px);
+                  }
+                  to { 
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+              `}</style>
+            </div>
+          );
+        }
+
         // ==================== 主应用 ====================
+        const DEBUG_INTRO = false; // 调试阶段打开
+
         export default function App() {
+          const [showIntro, setShowIntro] = useState(() => {
+            if (DEBUG_INTRO) return true;
+            // 检查localStorage，如果已访问过则不显示
+            const hasVisited = localStorage.getItem('portfolio_visited');
+            return !hasVisited;
+          });
+
+          const handleCloseIntro = () => {
+            localStorage.setItem('portfolio_visited', 'true');
+            setShowIntro(false);
+          };
+
           return (
             <div style={{ width: '100vw', height: '100vh', background: '#ffe4f5', position: 'relative' }}>
+              {/* 首次访问介绍UI */}
+              {showIntro && <IntroOverlay onClose={handleCloseIntro} />}
+              
               <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
                 <color attach="background" args={['#ffe4f5']} />
                 <fog attach="fog" args={['#ffe4f5', 8, 20]} />
@@ -1455,7 +1745,7 @@ const navArrowStyle = (dir) => ({
                 whiteSpace: 'nowrap',
                 border: '2px solid #ffb7d5'
               }}>
-                ✨ Turn on the PC ✨
+                CLICK THE PC TO BEGIN
               </div>
             </div>
           );
