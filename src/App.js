@@ -295,7 +295,7 @@ const navArrowStyle = (dir) => ({
 
         // ==================== 虚拟操作系统界面 ====================
   function VirtualOS({ view, setView }) {
-    const [activeTab, setActiveTab] = useState('contact'); 
+    const [activeTab, setActiveTab] = useState('about'); 
     const [selectedProject, setSelectedProject] = useState(null);
     const [videoUrl, setVideoUrl] = useState(null);
     const [emailForm, setEmailForm] = useState({ subject: '', body: '' });
