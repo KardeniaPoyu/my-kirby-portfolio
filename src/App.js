@@ -99,25 +99,9 @@
             repoLink: "https://github.com/KardeniaPoyu/dialogue-system"
           },
           
+          
           {
             id: 6,
-            type: "research", 
-            title: "Gender Disparities in Japan's Work-Life Balance",
-            category: "Data Analysis",
-            images: ["/images/Japan_worker.png"],
-            description: [
-              "In this comprehensive data analysis project, I decrypted the gender-based structural differences in the Japanese labor market using non-parametric statistical methods.",
-              "The research involved deep-dive processing of large-scale survey data, applying Kruskal-Wallis tests and Spearman correlation to identify how family roles influence working hours.",
-              "I constructed sophisticated ARIMA and SARIMA time-series models to predict future labor trends, successfully capturing the 'Shunto' (Spring Wage Offensive) seasonal fluctuations in Japan.",
-              "The final report provides a mathematical foundation for understanding the disparate rates of reduction in working hours between genders, blending rigorous statistics with socio-economic insights."
-            ],
-            tech: ["Python", "SPSS","Time Series (ARIMA)", "Non-parametric Statistics", "Data Visualization"],
-            date: "2025.01.10", 
-            repoLink: "/files/Paper_01.pdf" 
-          },
-
-          {
-            id: 7,
             type: "research", 
             title: "Machine Learning for Eco-Sustainability in Ethnic Villages",
             category: "Machine Learning",
@@ -133,6 +117,23 @@
             tech: ["Python", "Random Forest", "CNN-LSTM", "InVEST Model", "Remote Sensing (GIS)"],
             date: "2025.05.20", 
             repoLink: "/files/基于机器学习的民族村寨生态环境可持续发展研究.pdf" 
+          },
+
+          {
+            id: 7,
+            type: "research", 
+            title: "Gender Disparities in Japan's Work-Life Balance",
+            category: "Data Analysis",
+            images: ["/images/Japan_worker.png"],
+            description: [
+              "In this comprehensive data analysis project, I decrypted the gender-based structural differences in the Japanese labor market using non-parametric statistical methods.",
+              "The research involved deep-dive processing of large-scale survey data, applying Kruskal-Wallis tests and Spearman correlation to identify how family roles influence working hours.",
+              "I constructed sophisticated ARIMA and SARIMA time-series models to predict future labor trends, successfully capturing the 'Shunto' (Spring Wage Offensive) seasonal fluctuations in Japan.",
+              "The final report provides a mathematical foundation for understanding the disparate rates of reduction in working hours between genders, blending rigorous statistics with socio-economic insights."
+            ],
+            tech: ["Python", "SPSS","Time Series (ARIMA)", "Non-parametric Statistics", "Data Visualization"],
+            date: "2025.01.10", 
+            repoLink: "/files/Paper_01.pdf" 
           },
 
           {
