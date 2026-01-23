@@ -77,7 +77,7 @@
             ],
             tech: ["PyTorch", "YOLOv8", "Deep Learning", "Computer Vision"],
             date: "2025.10.17", 
-            repoLink: "https://ieeexplore.ieee.org/document/11291274"
+            repoLink: "/files/YOLOv8-MAH_A_Vehicle_Detection_Method_Based_on_Mosaic_Augmentation_Attention_Mechanism_and_Heatmap-Based_Interpretability.pdf"
           },
           {
             id: 3,
@@ -763,7 +763,7 @@ const navArrowStyle = (dir) => ({
               
               {selectedProject.repoLink && (
                 <PixelButton href={selectedProject.repoLink} color="#ff9ac2">
-                  🔗 SOURCE_CODE.URL
+                  🔗 MORE_DETAILS.URL
                 </PixelButton>
               )}
             </div>
