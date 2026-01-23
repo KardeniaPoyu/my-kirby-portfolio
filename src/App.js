@@ -152,64 +152,103 @@
             repoLink: "/files/基于各省防疫政策下健康码产品设计的应用差异研究和对策分析.pdf" 
           },
         ];
+const aboutContent = [
+  {
+    type: 'text',
+    content: (
+      <div className="content-wrapper">
+        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}>
+          Yirong Zhou (周毅荣)
+        </div>
+        
+        <div style={{ marginTop: '10px', marginBottom: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ff9ac2', color: '#eee' }}>
+          <strong>Undergraduate Student in Information and Computing Science</strong><br/>
+          Minzu University of China
+        </div>
 
+        <p style={{ marginBottom: '15px' }}>
+          I am an undergraduate student majoring in <strong>Information and Computing Science</strong>, with a strong foundation in numerical methods, linear algebra, optimization, and statistical modeling.
+        </p>
 
-        const aboutContent = [
-    {
-      type: 'text',
-      content: "Hi there ! If someone is reading this file, remember my name is Yirong Zhou (周 毅荣).I am currently an undergraduate student majoring in Information and Computing Science from China. My academic interests include computer graphics, AI, and game development."
-    },
-    {
-      type: 'image',
-      url: '/images/微信图片_20260118135146_1059_4.jpg',
-      caption: 'Fig. 1. Me at Disenyland, Shanghai, China'
-    },
-    
-    
-    {
-      type: 'text',
-      content: "I have a strong passion for exploring how mathematics can be applied to create immersive digital experiences. Currently, I am focusing on real-time rendering and GPU programming."
-    },
-    {
-      type: 'timeline',
-      events: [
-          { year: '2026', title: 'Graduation', desc: 'Earned a Bachelor\'s degree in Information and Computing Science at Minzu University of China' },
-        { 
-          year: '2019', 
-          title: 'First Game Project', 
-          desc: 'My first true creation, the moment I realized my calling as a programmer.' 
-        },
-        { year: '2003', title: 'Birth', desc: 'Born in China' },
-      ]
-    },
-     {
-      type: 'text',
-      content: "My journey into game development began here. Built during a single week in high school, this was my first real project. It’s a tribute to my childhood obsession with Angry Birds, the game that captured my imagination and eventually guided me toward my career as a game programmer."
-    },
-    {
-      type: 'image',
-      url: '/images/first_game.png',
-      caption: 'Fig. 2. My first game made with GameMaker 8.0 in 2019'
-    },
-    {
-      type: 'text',
-      content: "I enjoy not only tech but also design. Making games has always been a dream of mine. I enjoy the entire process from conceptualization to coding and design. I have experience working with Unity and Unreal Engine, and I am constantly learning new tools and techniques to improve my skills."
-    },
+        <p style={{ marginBottom: '15px' }}>
+          My research interests lie in <strong>visual computing</strong>, spanning real-time computer graphics, computer vision, and learning-based visual modeling. I am particularly interested in how mathematical modeling and algorithmic design can be leveraged to build <strong>high-performance, GPU-accelerated systems</strong> under real-time constraints, with applications in interactive rendering pipelines and graphics-intensive applications.
+        </p>
+      </div>
+    )
+  },
+  {
+    type: 'image',
+    url: '/images/微信图片_20260118135146_1059_4.jpg',
+    caption: 'Fig. 1. Experience at Disneyland, Shanghai.'
+  },
+  {
+    type: 'text',
+    content: (
+      <div>
+        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff9ac2', marginTop: '20px', marginBottom: '10px' }}>
+          Research Interest & Experience
+        </div>
+        <p>
+        My research journey began with <strong>Computer Vision</strong>, where I focused on the balance between model complexity and inference speed. 
+        Notably, as <strong>first author</strong>, I proposed an enhanced <strong>YOLOv8-based vehicle detection model</strong> (published at an IEEE conference), 
+        where I implemented custom attention mechanisms to improve feature representation in complex urban scenarios.
+      </p>
+        
+        {/* 模仿学术主页的细化研究点 */}
+        <ul style={{ paddingLeft: '18px', margin: '15px 0', listStyleType: 'circle' }}>
+          <li>
+            <strong>Real-time Rendering Pipelines</strong>: Interested in mathematical optimization for GPU-accelerated systems.
+          </li>
+          <li>
+            <strong>Learning-based Visual Modeling</strong>: Integrating data-driven methods into traditional graphics systems to balance efficiency and scalability.
+          </li>
+          <li>
+            System-level Design: Modular architecture for interactive rendering and graphics-intensive applications.
+          </li>
+        </ul>
 
-    {
-      type: 'text',
-      content: "I have visited Japan multiple times and fallen in love with its unique blend of tradition and modernity. The vibrant city life, rich history, and warm people have left a lasting impression on me. So I hope to work in Japan and learn more about game development there. Kirby is one of my favorite characters!"
-    },
-    {
-      type: 'image',
-      url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
-      caption: 'Fig. 3. Me at Shinsaibashi, Osaka, Japan'
-    },
-    {
-      type: 'text',
-      content: "Feel free to reach out to me for collaborations, discussions, or just to say hi! I'm always open to connecting with like-minded individuals."
-    }
-  ];
+        <p style={{ fontSize: '12px', color: '#888', fontStyle: 'italic' }}>
+          *Note: Bold items indicate research topics where I have practical, nonzero experience.*
+        </p>
+      </div>
+    )
+  },
+  {
+    type: 'image',
+    url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
+    caption: 'Fig. 2. Field study in Shinsaibashi, Osaka, Japan.'
+  },
+  {
+    type: 'timeline',
+    events: [
+      { year: '2026', title: 'B.S. in Info & Computing Science', desc: 'Minzu University of China. Thesis focus: Visual Computing.' },
+      { 
+        year: '2024', 
+        title: 'IEEE Conference Publication', 
+        desc: 'First-author: Enhanced YOLOv8-based vehicle detection model.' 
+      },
+      { 
+        year: '2003', 
+        title: 'Birth', 
+        desc: 'Born in Guangxi, China.' 
+      },
+    ]
+  },
+  {
+    type: 'text',
+    content: (
+      <div style={{ marginTop: '20px' }}>
+        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}> Long-term Research Goal </div>
+        <p>
+          In parallel, my hands-on experience in game development and graphics-oriented system design has strengthened my understanding of real-time systems, system-level optimization, and modular architecture design. My goal is to explore the integration of <strong>GPU programming, learning-based techniques, and mathematical optimization</strong> to advance real-time rendering systems and interactive visual computing.
+        </p>
+        <p style={{ marginTop: '15px' }}>
+          <strong>Languages:</strong> Mandarin (Native), English (Professional), Japanese (Conversational & Highly Motivated).
+        </p>
+      </div>
+    )
+  }
+];
         // ===== 视频链接转 iframe =====
         function convertToEmbed(url) {
           if (!url) return ''
@@ -877,9 +916,7 @@ const navArrowStyle = (dir) => ({
         lineHeight: '1.8',
         color: '#eee'
       }}>
-            <div style={{ marginTop: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ff9ac2' }}>
-                          Yirong Zhou.
-                        </div>
+            
         {aboutContent.map((item, index) => {
           if (item.type === 'text') {
             return (
