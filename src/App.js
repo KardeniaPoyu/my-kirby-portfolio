@@ -223,7 +223,7 @@ const aboutContent = [
     events: [
       { year: '2026', title: 'B.S. in Info & Computing Science', desc: 'Minzu University of China. Thesis focus: Visual Computing.' },
       { 
-        year: '2024', 
+        year: '2025', 
         title: 'IEEE Conference Publication', 
         desc: 'First-author: Enhanced YOLOv8-based vehicle detection model.' 
       },
