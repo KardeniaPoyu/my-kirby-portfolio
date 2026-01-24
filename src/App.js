@@ -191,7 +191,7 @@ with particular interest in their applications to real-time systems and performa
           Research Interest & Experience
         </div>
         <p>
-        My research journey began with <strong>Computer Vision</strong>where I focused on the trade-off between model complexity, inference latency, and system-level constraints in real-time settings.
+        My research journey began with <strong>Computer Vision</strong> where I focused on the trade-off between model complexity, inference latency, and system-level constraints in real-time settings.
         Notably, as <strong>first author</strong>, I proposed an enhanced <strong>YOLOv8-based vehicle detection model</strong> (published at an IEEE conference), 
         where I implemented custom attention mechanisms to improve feature representation in complex urban scenarios.
       </p>
