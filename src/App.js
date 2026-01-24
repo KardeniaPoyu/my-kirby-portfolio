@@ -168,7 +168,8 @@ const aboutContent = [
         </div>
 
         <p style={{ marginBottom: '15px' }}>
-          I am an undergraduate student majoring in <strong>Information and Computing Science</strong>, with a strong foundation in numerical methods, linear algebra, optimization, and statistical modeling.
+          I am an undergraduate student majoring in <strong>Information and Computing Science</strong>, with a strong foundation in numerical methods, linear algebra, optimization, and statistical modeling, 
+with particular interest in their applications to real-time systems and performance-critical pipelines.
         </p>
 
         <p style={{ marginBottom: '15px' }}>
@@ -190,7 +191,7 @@ const aboutContent = [
           Research Interest & Experience
         </div>
         <p>
-        My research journey began with <strong>Computer Vision</strong>, where I focused on the balance between model complexity and inference speed. 
+        My research journey began with <strong>Computer Vision</strong>where I focused on the trade-off between model complexity, inference latency, and system-level constraints in real-time settings.
         Notably, as <strong>first author</strong>, I proposed an enhanced <strong>YOLOv8-based vehicle detection model</strong> (published at an IEEE conference), 
         where I implemented custom attention mechanisms to improve feature representation in complex urban scenarios.
       </p>
@@ -198,13 +199,13 @@ const aboutContent = [
         {/* 模仿学术主页的细化研究点 */}
         <ul style={{ paddingLeft: '18px', margin: '15px 0', listStyleType: 'circle' }}>
           <li>
-            <strong>Real-time Rendering Pipelines</strong>: Interested in mathematical optimization for GPU-accelerated systems.
+            <strong>Real-time Rendering Pipelines</strong>: Focus on mathematical optimization and system design for GPU-accelerated, performance-critical rendering pipelines.
           </li>
           <li>
-            <strong>Learning-based Visual Modeling</strong>: Integrating data-driven methods into traditional graphics systems to balance efficiency and scalability.
+            <strong>Learning-based Visual Modeling</strong>: Integrating data-driven components into traditional graphics and visual pipelines to balance efficiency, latency, and scalability.
           </li>
           <li>
-            System-level Design: Modular architecture for interactive rendering and graphics-intensive applications.
+            System-level Design: Modular and extensible system architectures for interactive, graphics-intensive applications under real-time constraints.
           </li>
         </ul>
 
@@ -241,7 +242,7 @@ const aboutContent = [
       <div style={{ marginTop: '20px' }}>
         <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}> Long-term Research Goal </div>
         <p>
-          In parallel, my hands-on experience in game development and graphics-oriented system design has strengthened my understanding of real-time systems, system-level optimization, and modular architecture design. My goal is to explore the integration of <strong>GPU programming, learning-based techniques, and mathematical optimization</strong> to advance real-time rendering systems and interactive visual computing.
+          In parallel, my hands-on experience in game development and graphics-oriented system design has strengthened my understanding of real-time systems, system-level optimization, and modular architecture design. My goal is to explore the integration of <strong>GPU programming, learning-based techniques, and mathematical optimization</strong> to advance real-time rendering systems and interactive visual computing through system-level and algorithmic co-design.
         </p>
         <p style={{ marginTop: '15px' }}>
           <strong>Languages:</strong> Mandarin (Native), English (Professional), Japanese (Conversational & Highly Motivated).
