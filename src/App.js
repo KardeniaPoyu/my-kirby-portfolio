@@ -69,12 +69,12 @@
             "/images/yolofig5.png",
             ], 
             description: [
-              "As the first author, I proposed YOLOv8-MAH, an enhanced vehicle detection model designed to address challenges like complex backgrounds and small object occlusion in urban traffic.",
-              "The research was presented at CVIP 2025 (IEEE Conference on Computer Vision and Image Processing) and is published in the official proceedings.",
-              "The model integrates a Multi-Head Self-Attention (MHSA) mechanism into the backbone to capture global dependencies and a specialized decoupled head to accelerate convergence.",
-              "I implemented an optimized Mosaic-9 data augmentation strategy, significantly improving the detection accuracy for small-scale vehicle objects in high-density scenarios.",
-              "The research achieved a mAP@0.5 of 81.3% on the UA-DETRAC dataset and utilizes Grad-CAM heatmaps to provide visual interpretability of the model's decision-making process."
-            ],
+  "As the first author, I proposed YOLOv8-MAH, an enhanced vehicle detection model addressing complex backgrounds and small-object occlusion in urban traffic scenarios, from a perception-centric decision support perspective.",
+  "The research was presented at CVIP 2025 (IEEE Conference on Computer Vision and Image Processing) and published in the official proceedings.",
+  "The model integrates a Multi-Head Self-Attention (MHSA) mechanism into the backbone to improve global feature reasoning, enabling more robust perception under cluttered and dynamic environments.",
+  "An optimized Mosaic-9 data augmentation strategy was implemented to enhance the model’s generalization ability, especially for small-scale objects critical to downstream decision-making tasks.",
+  "Grad-CAM–based visual explanations were employed to analyze model behavior, providing interpretability for perception modules used in safety-critical or decision-driven systems."
+],
             tech: ["PyTorch", "YOLOv8", "Deep Learning", "Computer Vision"],
             date: "2025.10.17", 
             repoLink: "/files/YOLOv8-MAH_A_Vehicle_Detection_Method_Based_on_Mosaic_Augmentation_Attention_Mechanism_and_Heatmap-Based_Interpretability.pdf"
@@ -161,20 +161,31 @@ const aboutContent = [
         <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}>
           Yirong Zhou (周毅荣)
         </div>
-        
+
         <div style={{ marginTop: '10px', marginBottom: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ff9ac2', color: '#eee' }}>
           <strong>Undergraduate Student in Information and Computing Science</strong><br/>
-          Minzu University of China
+          Minzu University of China<br/>
+          <span style={{ fontSize: '13px', color: '#bbb' }}>
+            Research Assistant, Institute of Automation, Chinese Academy of Sciences
+          </span>
         </div>
 
         <p style={{ marginBottom: '15px' }}>
-          I am an undergraduate student majoring in <strong>Information and Computing Science</strong>, with a strong foundation in numerical methods, linear algebra, optimization, and statistical modeling, 
-with particular interest in their applications to real-time systems and performance-critical pipelines.
+          I am an undergraduate student majoring in <strong>Information and Computing Science</strong>,
+          with a solid mathematical foundation in numerical analysis and linear algebra.
+          My current research interests focus on <strong>large language models (LLMs)</strong>,
+          <strong>reinforcement learning</strong>, and their integration into <strong>intelligent and multimodal agents</strong>.
         </p>
 
         <p style={{ marginBottom: '15px' }}>
-          My research interests lie in <strong>visual computing</strong>, spanning real-time computer graphics, computer vision, and learning-based visual modeling. I am particularly interested in how mathematical modeling and algorithmic design can be leveraged to build <strong>high-performance, GPU-accelerated systems</strong> under real-time constraints, with applications in interactive rendering pipelines and graphics-intensive applications.
-        </p>
+  My early research experience included <strong>computer vision</strong> and multimodal perception tasks,
+  which provided a foundation in modeling and system implementation.
+  Building upon this, I am now focused on <strong>agent-centric research</strong>,
+  emphasizing the integration of perception, reasoning, and action
+  through <strong>LLM- and RL-based frameworks</strong> for adaptive decision-making
+  in complex, multimodal environments.
+</p>
+
       </div>
     )
   },
@@ -183,38 +194,34 @@ with particular interest in their applications to real-time systems and performa
     url: '/images/微信图片_20260118135146_1059_4.jpg',
     caption: 'Fig. 1. Experience at Disneyland, Shanghai.'
   },
-  {
-    type: 'text',
-    content: (
-      <div>
-        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff9ac2', marginTop: '20px', marginBottom: '10px' }}>
-          Research Interest & Experience
-        </div>
-        <p>
-        My research journey began with <strong>Computer Vision</strong> where I focused on the trade-off between model complexity, inference latency, and system-level constraints in real-time settings.
-        Notably, as <strong>first author</strong>, I proposed an enhanced <strong>YOLOv8-based vehicle detection model</strong> (published at an IEEE conference), 
-        where I implemented custom attention mechanisms to improve feature representation in complex urban scenarios.
-      </p>
-        
-        {/* 模仿学术主页的细化研究点 */}
-        <ul style={{ paddingLeft: '18px', margin: '15px 0', listStyleType: 'circle' }}>
-          <li>
-            <strong>Real-time Rendering Pipelines</strong>: Focus on mathematical optimization and system design for GPU-accelerated, performance-critical rendering pipelines.
-          </li>
-          <li>
-            <strong>Learning-based Visual Modeling</strong>: Integrating data-driven components into traditional graphics and visual pipelines to balance efficiency, latency, and scalability.
-          </li>
-          <li>
-            System-level Design: Modular and extensible system architectures for interactive, graphics-intensive applications under real-time constraints.
-          </li>
-        </ul>
-
-        <p style={{ fontSize: '12px', color: '#888', fontStyle: 'italic' }}>
-          *Note: Bold items indicate research topics where I have practical, nonzero experience.*
-        </p>
+{
+  type: 'text',
+  content: (
+    <div>
+      <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff9ac2', marginTop: '20px', marginBottom: '10px' }}>
+        Research Interest & Experience
       </div>
-    )
-  },
+      <p>
+        My research interests focus on designing <strong>intelligent agents</strong> that integrate <strong>perception, reasoning, and action</strong> using <strong>large language models (LLMs)</strong> and <strong>reinforcement learning (RL)</strong>. I am particularly interested in <strong>multimodal agent architectures</strong> that process visual, language, and environmental information for adaptive decision-making in complex scenarios.
+      </p>
+      <ul style={{ paddingLeft: '18px', margin: '15px 0', listStyleType: 'circle' }}>
+        <li>
+          <strong>LLM-based Decision Reasoning</strong>: Leveraging large language models to interpret multimodal inputs and guide agent actions.
+        </li>
+        <li>
+          <strong>Reinforcement Learning</strong>: Designing policy learning algorithms for adaptive and robust behavior generation in dynamic environments.
+        </li>
+        <li>
+          <strong>Multimodal Agent Design</strong>: Integrating vision, language, and external tools/modules for complex task completion.
+        </li>
+       
+      </ul>
+      <p style={{ fontSize: '12px', color: '#888', fontStyle: 'italic' }}>
+        *Note: Bold items indicate research topics where I have practical experience.*
+      </p>
+    </div>
+  )
+},
   {
     type: 'image',
     url: '/images/7b28bef731babe7c3fd436f307f24b6c.png',
@@ -242,14 +249,14 @@ with particular interest in their applications to real-time systems and performa
       <div style={{ marginTop: '20px' }}>
         <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}> Long-term Research Goal </div>
         <p>
-          In parallel, my hands-on experience in game development and graphics-oriented system design has strengthened my understanding of real-time systems, system-level optimization, and modular architecture design. My goal is to explore the integration of <strong>GPU programming, learning-based techniques, and mathematical optimization</strong> to advance real-time rendering systems and interactive visual computing through system-level and algorithmic co-design.
+          Building on my hands-on experience in game development and visual computing, I aim to explore the design and learning mechanisms of <strong>intelligent agents</strong> that integrate perception, reasoning, and action. My focus is on combining <strong>reinforcement learning, large language models (LLMs), and multimodal information</strong> to develop agents capable of adaptive decision-making and robust behavior generation in complex environments.
         </p>
         <p style={{ marginTop: '15px' }}>
           <strong>Languages:</strong> Mandarin (Native), English (Professional), Japanese (Conversational & Highly Motivated).
         </p>
       </div>
     )
-  }
+}
 ];
         // ===== 视频链接转 iframe =====
         function convertToEmbed(url) {
