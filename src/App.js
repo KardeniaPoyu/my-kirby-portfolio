@@ -152,10 +152,31 @@
             date: "2023.05.02", 
             repoLink: "/files/基于各省防疫政策下健康码产品设计的应用差异研究和对策分析.pdf" 
           },
+          {
+            id: 9,
+            type: "code",
+            title: "MaskForced: 少主的缚面",
+            category: "2D narrative-driven mask-crafting adventure game",
+            images: [
+              "/images/maskforced1.png",
+              "/images/maskforced2.png",
+              "/images/maskforced3.png"
+            ],
+            description: [
+              "As the primary programmer, I led the core system development of MaskForced (少主的缚面), a narrative-driven mask-crafting adventure game developed in Unity.",
+              "In this game, the player awakens as the 'Young Master' of a declining magical faction and must reconstruct a shattered enchanted mask before attending a decisive masquerade ball within a strict two-hour in-game limit.",
+              "I designed and implemented the core 'forced adaptation' crafting system, where arbitrary environmental objects (e.g., crystal balls, wizard hats, spider webs) can be dragged onto a blueprint and algorithmically transformed into functional mask components regardless of logical compatibility.",
+              "The system dynamically maps object attributes into mask abilities, triggering memory restoration events and branching narrative outcomes depending on the player’s constructed mask configuration.",
+              "Beyond the crafting framework, I was responsible for gameplay logic architecture, event state management, interaction systems, and overall performance optimization, ensuring modular scalability for narrative expansion and future content iteration."
+            ],
+            tech: ["Unity", "C#", "Narrative System Design", "Gameplay Architecture"],
+            date: "2025.02.01",
+            demoLink: "https://www.bilibili.com/video/BV1nj6tB2ELv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=be836a0d4ac529548a9c236733b602c9", 
+            repoLink: "https://globalgamejam.org/games/2026/shaozhudefumian-maskforced-0"
+          }
         ];
 const aboutContent = [
   {
-    type: 'text',
     content: (
       <div className="content-wrapper">
         <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}>
