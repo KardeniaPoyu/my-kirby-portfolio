@@ -65,6 +65,7 @@
             title: "MaskForced",
             category: "2D narrative-driven mask-crafting adventure game",
             images: [
+              "/images/maskforced4.png",
               "/images/maskforced1.png",
               "/images/maskforced2.png",
               "/images/maskforced3.png"
