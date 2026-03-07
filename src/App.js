@@ -38,6 +38,28 @@
         // 作品数据
         const PROJECTS_ARRAY = [
           {
+            id: 10,
+            type: "code",
+            title: "Dot Track",
+            category: "2.5D Roguelike Geometry-Puzzle Game",
+            images: [
+              "/images/dottrack1.png",
+              "/images/dottrack2.png",
+              "/images/dottrack3.png"
+            ],
+            description: [
+              "As the group leader, core programmer and designer, I spearheaded the development of Dot Track, a project created for the 2026 Mengya Game Jam under the theme 'DOT'.",
+              "I developed a unique 'Connecting the Truth' mechanic where the core gameplay isn't just about walking, but about 'lassoing' evidence. Using Vector Cross-Products and the Shoelace Formula, I built a path-intersection system that detects when the player's trail crosses itself. This allowed me to create complex 'closed-loop' triggers that reveal hidden clues or banish supernatural threats within the enclosed area.",
+              "To bridge the gap between abstract logic and the game world, I engineered a 'Logic-Physics Synchronization' framework. While the detective moves on a discrete grid (Vector2Int), a background system uses Physics.OverlapSphere to trigger real-time interactions with 'Interactable' evidence and enemies, making every step feel physically grounded in the 3D environment.",
+              "I replaced traditional branching dialogue with a 'Binary Narrative System.' By encoding clue-collection sequences into bit-streams ($1 \\ll i$), the game algorithmically generates one of 8 unique case conclusions. This turns the investigation into a high-stakes puzzle where the order and type of clues you 'capture' dictate the final story outcome.",
+              "Finally, I added 'Dynamic Terrain Interference' to keep the mystery alive. To challenge the player's limited steps, I programmed enemies that can rewrite the grid—literally adding noise or erasing paths—forcing players to adapt their investigation strategy on the fly within a clean, event-driven C# architecture."
+            ],
+            tech: ["Unity", "C#", "Computational Geometry","Gameplay Architecture","Event-Driven Design"],
+            date: "2025.02.14",
+            demoLink: "https://www.bilibili.com/video/BV1oLZkBsEhu/", 
+            repoLink: "https://www.gmhub.com/game/9501"
+          },
+          {
             id: 9,
             type: "code",
             title: "MaskForced",
