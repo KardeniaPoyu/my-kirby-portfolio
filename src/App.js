@@ -922,7 +922,7 @@ const navArrowStyle = (dir) => ({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', alignItems: 'center' }}>
           {[
             { name: 'GITHUB', url: 'https://github.com/KardeniaPoyu', color: '#fff', icon: 'pixelarticons:github' },
-            { name: 'X/TWITTER', url: 'https://x.com/KardeniaPoyu', color: '#1DA1F2', icon: 'pixelarticons:contact' },
+            { name: 'X/TWITTER', url: 'https://x.com/KardeniaPoyu', color: '#1DA1F2', icon: 'ri:twitter-x-fill' },
             { name: 'BLOG', url: 'https://blog.yirong.site', color: '#8B5CF6', icon: 'pixelarticons:article' },
             { name: 'BILIBILI', url: 'https://space.bilibili.com/15095535', color: '#fb7299', icon: 'ri:bilibili-fill' }
           ].map(link => (
