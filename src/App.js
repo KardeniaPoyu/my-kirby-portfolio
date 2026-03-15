@@ -1982,6 +1982,11 @@ export default function App() {
   const [isMoving, setIsMoving] = useState(false);
   const [showQuickLinks, setShowQuickLinks] = useState(false);
 
+  // 控制提示文字的渐变切换
+  const [promptVisible, setPromptVisible] = useState(true);
+  const [displayedPrompt, setDisplayedPrompt] = useState(null);
+  const promptTimerRef = useRef(null);
+
   useEffect(() => {
     let timer;
     const startTimer = () => {
@@ -2033,8 +2038,33 @@ export default function App() {
         </div>
       );
     }
-    return "";
+    return null;
   };
+
+  // 每次内容变化时，先淡出 → 换内容 → 淡入
+  useEffect(() => {
+    const next = getPromptText();
+    
+    // 内容相同时不触发动画
+    const nextStr = JSON.stringify(next);
+    const currStr = JSON.stringify(displayedPrompt);
+    if (nextStr === currStr) return;
+
+    clearTimeout(promptTimerRef.current);
+    
+    // 先淡出
+    setPromptVisible(false);
+    
+    // 淡出完成后换内容再淡入
+    promptTimerRef.current = setTimeout(() => {
+      setDisplayedPrompt(next);
+      setPromptVisible(!!next); // 有内容才淡入，null 则保持隐藏
+    }, 300); // 与 transition duration 一致
+
+    return () => clearTimeout(promptTimerRef.current);
+  }, [isLoaded, isSlowLoad, currentView, isProjectDetail, isMoving]);
+
+  const shouldShowContainer = !isMoving && !!displayedPrompt;
 
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#ffe4f5', position: 'relative' }}>
@@ -2069,11 +2099,11 @@ export default function App() {
         whiteSpace: 'normal',
         textAlign: 'center',
         border: '2px solid #ffb7d5',
-        opacity: (!isLoaded || ((currentView === 'room' || currentView === 'focus') && !isMoving)) ? 1 : 0,
-        transition: 'opacity 0.5s ease, visibility 0.5s ease',
-        visibility: (!isLoaded || ((currentView === 'room' || currentView === 'focus') && !isMoving)) ? 'visible' : 'hidden'
+        opacity: (shouldShowContainer && promptVisible) ? 1 : 0,
+        transition: 'opacity 0.3s ease, visibility 0.3s ease',
+        visibility: shouldShowContainer ? 'visible' : 'hidden'
       }}>
-        {getPromptText()}
+        {displayedPrompt}
       </div>
     </div>
   );
