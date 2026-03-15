@@ -1187,7 +1187,7 @@ function ComputerModel({ onClick, view }) {
 useGLTF.preload('/models/device.glb');
 
 // ==================== 场景管理 ====================
-function Scene({ onViewChange }) {
+function Scene({ onViewChange, onProjectChange }) {
   const [isMoving, setIsMoving] = useState(false);
   const { camera } = useThree();
   const [view, setView] = useState('room');
@@ -1541,7 +1541,7 @@ function Scene({ onViewChange }) {
       >
         {/* 传递 isMoving 状态进去，防止动画过程中误触 */}
         <div style={{ pointerEvents: view === 'focus' && !isMoving ? 'auto' : 'none' }}>
-          <VirtualOS view={view} setView={handleViewChange} onProjectChange={(proj) => setIsProjectDetail(!!proj)} />
+          <VirtualOS view={view} setView={handleViewChange} onProjectChange={(proj) => onProjectChange(!!proj)} />
         </div>
       </Html>
 
@@ -1929,7 +1929,7 @@ export default function App() {
         <color attach="background" args={['#ffe4f5']} />
         <fog attach="fog" args={['#ffe4f5', 8, 20]} />
         <Suspense fallback={null}>
-          <Scene onViewChange={setCurrentView} />
+          <Scene onViewChange={setCurrentView} onProjectChange={setIsProjectDetail} />
         </Suspense>
       </Canvas>
 
