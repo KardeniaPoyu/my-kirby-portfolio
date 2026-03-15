@@ -1893,14 +1893,14 @@ function QuickLinksOverlay({ onClose }) {
       <div style={{
         background: '#2a1a2f', 
         backgroundImage: `
-          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
           linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))
         `,
         backgroundSize: '100% 4px, 3px 100%',
         border: '6px double #ff9ac2', 
         borderRadius: '20px',
-        padding: '35px 50px', width: '100%', maxWidth: '440px', position: 'relative',
-        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.8), 0 0 60px rgba(255, 154, 194, 0.4)',
+        padding: '45px 65px', width: '100%', maxWidth: '580px', position: 'relative',
+        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.85), 0 0 12px #ff9ac2, 0 0 25px rgba(255, 154, 194, 0.6), 0 0 50px rgba(255, 154, 194, 0.3)',
         fontFamily: '"Press Start 2P", monospace',
         animation: 'slideUp 0.6s ease'
       }}>
@@ -1912,7 +1912,7 @@ function QuickLinksOverlay({ onClose }) {
             LOADING_3D_SCENE.EXE
           </div>
           <h2 style={{ fontSize: '18px', color: '#ff9ac2', letterSpacing: '2px', marginBottom: '6px', textAlign: 'center' }}>&gt; QUICK_ACCESS_LINKS</h2>
-          <p style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Courier New", monospace', margin: 0 }}>explore while the scene loads...</p>
+          <p style={{ fontSize: '10px', color: '#87ceeb', letterSpacing: '1px', fontFamily: '"Courier New", monospace', margin: 0 }}>explore while the scene loads...</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', marginBottom: '22px' }}>
