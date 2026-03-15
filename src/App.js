@@ -1901,7 +1901,7 @@ export default function App() {
   const getPromptText = () => {
     if (!isLoaded) {
       return isSlowLoad
-        ? <span style={{ color: '#e91e63' }}> If the page takes too long to load, please try using a VPN </span>
+        ? <span> If the page takes too long to load, please try using a VPN </span>
         : "LOADING ASSETS... PLEASE WAIT";
     }
 
@@ -1912,8 +1912,9 @@ export default function App() {
     if (currentView === 'focus') {
       return (
         <div style={{ display: 'flex', gap: '20px', fontSize: '12px', alignItems: 'center' }}>
-          {isProjectDetail && <span style={{ color: '#00ffcc' }}>← CLICK [BACK_TO_LIST] TO GO BACK</span>}
-          <span style={{ color: '#87ceeb' }}>← CLICK [RETURN_] TO LEAVE THE PC</span>
+          {isProjectDetail && <span>← CLICK [BACK_TO_LIST] TO GO BACK</span>}
+          {isProjectDetail && <span style={{ opacity: 0.3, margin: '0 4px' }}>|</span>}
+          <span>← CLICK [RETURN_] TO LEAVE THE PC</span>
         </div>
       );
     }
