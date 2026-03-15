@@ -1871,6 +1871,100 @@ function IntroOverlay({ onClose }) {
   );
 }
 
+// ==================== 快速链接引导 ====================
+function QuickLinksOverlay({ onClose }) {
+  const links = [
+    { name: 'GITHUB',     url: 'https://github.com/KardeniaPoyu',     color: '#fff',     icon: 'pixelarticons:github' },
+    { name: 'X/TWITTER',  url: 'https://x.com/KardeniaPoyu',          color: '#1DA1F2',  icon: 'pixelarticons:contact' },
+    { name: 'BLOG',       url: 'https://blog.yirong.site',           color: '#8B5CF6',  icon: 'pixelarticons:article' },
+    { name: 'BILIBILI',   url: 'https://space.bilibili.com/15095535', color: '#fb7299',  icon: 'ri:bilibili-fill' }, // 保持原有图标
+    { name: 'CONTACT',    url: 'mailto:yirongyiburong@gmail.com',    color: '#00ffcc',  icon: 'pixelarticons:mail' }
+  ];
+
+  return (
+    <div style={{
+      position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+      background: 'radial-gradient(circle at center, rgba(60,30,70,0.95), rgba(10,5,15,0.98))',
+      backdropFilter: 'blur(12px)',
+      zIndex: 9998,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      animation: 'fadeIn 0.5s ease'
+    }}>
+      <div style={{
+        background: '#2a1a2f', 
+        backgroundImage: `
+          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+          linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))
+        `,
+        backgroundSize: '100% 4px, 3px 100%',
+        border: '6px double #ff9ac2', 
+        borderRadius: '20px',
+        padding: '35px 50px', width: '100%', maxWidth: '440px', position: 'relative',
+        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.8), 0 0 60px rgba(255, 154, 194, 0.4)',
+        fontFamily: '"Press Start 2P", monospace',
+        animation: 'slideUp 0.6s ease'
+      }}>
+        <div style={{ position: 'absolute', top: '16px', left: '50%', transform: 'translateX(-50%)', width: '75%', height: '1px', background: 'linear-gradient(90deg, transparent, #ff9ac2, transparent)' }} />
+
+        <div style={{ textAlign: 'center', marginBottom: '25px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,154,194,0.1)', border: '1px solid rgba(255,154,194,0.4)', borderRadius: '20px', padding: '6px 14px', fontSize: '9px', color: '#ff9ac2', marginBottom: '14px' }}>
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ff9ac2', animation: 'blink 1.2s ease-in-out infinite' }} />
+            LOADING_3D_SCENE.EXE
+          </div>
+          <h2 style={{ fontSize: '18px', color: '#ff9ac2', letterSpacing: '2px', marginBottom: '6px', textAlign: 'center' }}>&gt; QUICK_ACCESS_LINKS</h2>
+          <p style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Courier New", monospace', margin: 0 }}>explore while the scene loads...</p>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', marginBottom: '22px' }}>
+          {links.map(link => (
+            <a key={link.name} href={link.url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', width: '320px' }}>
+              <div style={{
+                padding: '12px 18px', border: `2px solid ${link.color}`, color: link.color,
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                transition: 'all 0.3s', cursor: 'pointer', background: 'rgba(0,0,0,0.3)',
+                fontFamily: '"Press Start 2P"', fontSize: '10px'
+              }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = link.color;
+                  e.currentTarget.style.color = '#000';
+                  e.currentTarget.style.boxShadow = `0 0 20px ${link.color}`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(0,0,0,0.3)';
+                  e.currentTarget.style.color = link.color;
+                  e.currentTarget.style.boxShadow = 'none';
+                }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <LocalIcon icon={link.icon} style={{ fontSize: '20px' }} />
+                  {link.name}
+                </span>
+                <LocalIcon icon="pixelarticons:arrow-right" />
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <button onClick={onClose} style={{
+          width: '100%', padding: '12px', background: 'transparent',
+          border: '2px solid #87ceeb', color: '#87ceeb',
+          fontFamily: '"Press Start 2P"', fontSize: '9px', cursor: 'pointer',
+          transition: 'all 0.2s'
+        }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#87ceeb'; e.currentTarget.style.color = '#000'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#87ceeb'; }}
+        >
+          [ ENTER_3D_SCENE ]
+        </button>
+
+        <div style={{ position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)', width: '75%', height: '1px', background: 'linear-gradient(90deg, transparent, #ff9ac2, transparent)' }} />
+      </div>
+      <style>{`
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+      `}</style>
+    </div>
+  );
+}
+
 // ==================== 主应用 ====================
 const DEBUG_INTRO = false; // 调试阶段打开
 
@@ -1886,6 +1980,7 @@ export default function App() {
   const [isSlowLoad, setIsSlowLoad] = useState(false);
   const [isProjectDetail, setIsProjectDetail] = useState(false);
   const [isMoving, setIsMoving] = useState(false);
+  const [showQuickLinks, setShowQuickLinks] = useState(false);
 
   useEffect(() => {
     let timer;
@@ -1915,6 +2010,7 @@ export default function App() {
   const handleCloseIntro = () => {
     localStorage.setItem('portfolio_visited', 'true');
     setShowIntro(false);
+    setShowQuickLinks(true);
   };
 
   const getPromptText = () => {
@@ -1944,6 +2040,7 @@ export default function App() {
     <div style={{ width: '100vw', height: '100vh', background: '#ffe4f5', position: 'relative' }}>
       {/* 首次访问介绍UI */}
       {showIntro && <IntroOverlay onClose={handleCloseIntro} />}
+      {showQuickLinks && <QuickLinksOverlay onClose={() => setShowQuickLinks(false)} />}
 
       <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
         <color attach="background" args={['#ffe4f5']} />
