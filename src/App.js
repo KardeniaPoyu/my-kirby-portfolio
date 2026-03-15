@@ -1187,7 +1187,7 @@ function ComputerModel({ onClick, view }) {
 useGLTF.preload('/models/device.glb');
 
 // ==================== 场景管理 ====================
-function Scene({ onViewChange, onProjectChange }) {
+function Scene({ onViewChange, onProjectChange, onMovingChange }) {
   const [isMoving, setIsMoving] = useState(false);
   const { camera } = useThree();
   const [view, setView] = useState('room');
@@ -1199,6 +1199,12 @@ function Scene({ onViewChange, onProjectChange }) {
       onViewChange(view);
     }
   }, [view, onViewChange]);
+
+  useEffect(() => {
+    if (onMovingChange) {
+      onMovingChange(isMoving);
+    }
+  }, [isMoving, onMovingChange]);
   // 移除 animationTimeouts，改用 GSAP 自带的清理
 
   // 确保引入 useEffect
@@ -1879,11 +1885,24 @@ export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSlowLoad, setIsSlowLoad] = useState(false);
   const [isProjectDetail, setIsProjectDetail] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
 
   useEffect(() => {
-    let timer = setTimeout(() => {
-      setIsSlowLoad(true);
-    }, 5000); // 5秒加载超时提示
+    let timer;
+    const startTimer = () => {
+      clearTimeout(timer);
+      setIsSlowLoad(false);
+      timer = setTimeout(() => {
+        setIsSlowLoad(true);
+      }, 5000);
+    };
+
+    startTimer(); // Mount start
+
+    THREE.DefaultLoadingManager.onStart = () => {
+      setIsLoaded(false);
+      startTimer();
+    };
 
     THREE.DefaultLoadingManager.onLoad = () => {
       setIsLoaded(true);
@@ -1930,7 +1949,7 @@ export default function App() {
         <color attach="background" args={['#ffe4f5']} />
         <fog attach="fog" args={['#ffe4f5', 8, 20]} />
         <Suspense fallback={null}>
-          <Scene onViewChange={setCurrentView} onProjectChange={setIsProjectDetail} />
+          <Scene onViewChange={setCurrentView} onProjectChange={setIsProjectDetail} onMovingChange={setIsMoving} />
         </Suspense>
       </Canvas>
 
@@ -1953,9 +1972,9 @@ export default function App() {
         whiteSpace: 'normal',
         textAlign: 'center',
         border: '2px solid #ffb7d5',
-        opacity: (!isLoaded || currentView === 'room' || currentView === 'focus') ? 1 : 0,
-        transition: 'opacity 0.5s ease',
-        visibility: (!isLoaded || currentView === 'room' || currentView === 'focus') ? 'visible' : 'hidden'
+        opacity: (!isLoaded || ((currentView === 'room' || currentView === 'focus') && !isMoving)) ? 1 : 0,
+        transition: 'opacity 0.5s ease, visibility 0.5s ease',
+        visibility: (!isLoaded || ((currentView === 'room' || currentView === 'focus') && !isMoving)) ? 'visible' : 'hidden'
       }}>
         {getPromptText()}
       </div>
