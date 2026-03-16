@@ -1906,13 +1906,9 @@ function QuickLinksOverlay({ onClose }) {
       }}>
         <div style={{ position: 'absolute', top: '16px', left: '50%', transform: 'translateX(-50%)', width: '75%', height: '1px', background: 'linear-gradient(90deg, transparent, #ff9ac2, transparent)' }} />
 
-        <div style={{ textAlign: 'center', marginBottom: '25px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,154,194,0.1)', border: '1px solid rgba(255,154,194,0.4)', borderRadius: '20px', padding: '6px 14px', fontSize: '9px', color: '#ff9ac2', marginBottom: '14px' }}>
-            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ff9ac2', animation: 'blink 1.2s ease-in-out infinite' }} />
-            LOADING_3D_SCENE.EXE
-          </div>
-          <h2 style={{ fontSize: '18px', color: '#ff9ac2', letterSpacing: '2px', marginBottom: '6px', textAlign: 'center' }}>&gt; QUICK_ACCESS_LINKS</h2>
-          <p style={{ fontSize: '10px', color: '#87ceeb', letterSpacing: '1px', fontFamily: '"Courier New", monospace', margin: 0 }}>explore while the scene loads...</p>
+        <div style={{ textAlign: 'center', marginBottom: '35px', marginTop: '10px' }}>
+          <h2 style={{ fontSize: '18px', color: '#ff9ac2', letterSpacing: '2px', marginBottom: '8px', textAlign: 'center' }}>&gt; QUICK_ACCESS_LINKS</h2>
+          <p style={{ fontSize: '10px', color: '#87ceeb', letterSpacing: '1px', fontFamily: '"Courier New", monospace', margin: 0 }}>explore directly via the shortcuts below...</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', marginBottom: '22px' }}>
@@ -1958,9 +1954,7 @@ function QuickLinksOverlay({ onClose }) {
 
         <div style={{ position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)', width: '75%', height: '1px', background: 'linear-gradient(90deg, transparent, #ff9ac2, transparent)' }} />
       </div>
-      <style>{`
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-      `}</style>
+
     </div>
   );
 }
