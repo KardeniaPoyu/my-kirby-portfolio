@@ -205,7 +205,7 @@ const aboutContent = [
     content: (
       <div className="content-wrapper">
         <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}>
-          Yirong Zhou (周毅荣)
+          Yirong Zhou
         </div>
 
         <div style={{ marginTop: '10px', marginBottom: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ff9ac2', color: '#eee' }}>
