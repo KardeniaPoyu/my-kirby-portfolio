@@ -205,7 +205,7 @@ const aboutContent = [
     content: (
       <div className="content-wrapper">
         <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff9ac2', marginBottom: '10px' }}>
-          Yirong Zhou
+          Apoyu Zhou
         </div>
 
         <div style={{ marginTop: '10px', marginBottom: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ff9ac2', color: '#eee' }}>
@@ -930,7 +930,7 @@ function VirtualOS({ view, setView, onProjectChange }) {
                 {[
                   { name: 'GITHUB', url: 'https://github.com/KardeniaPoyu', color: '#fff', icon: 'pixelarticons:github' },
                   { name: 'X/TWITTER', url: 'https://x.com/KardeniaPoyu', color: '#1DA1F2', icon: 'pixelarticons:contact' },
-                  { name: 'BLOG', url: 'https://blog.yirong.site', color: '#8B5CF6', icon: 'pixelarticons:article' },
+                  { name: 'BLOG', url: 'https://blog.apoyu.com', color: '#8B5CF6', icon: 'pixelarticons:article' },
                   { name: 'BILIBILI', url: 'https://space.bilibili.com/15095535', color: '#fb7299', icon: 'ri:bilibili-fill' }
                 ].map(link => (
                   <a key={link.name} href={link.url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', width: '320px' }}>
@@ -966,7 +966,7 @@ function VirtualOS({ view, setView, onProjectChange }) {
           {activeTab === 'about' && (
             <div className="fade-in" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
               <h2 style={{ color: '#ff9ac2', marginBottom: '20px', borderBottom: '1px solid #ff9ac2', paddingBottom: '10px' }}>
-                &gt; USER_PROFILE_DOCUMENT == Yirong Zhou
+                &gt; USER_PROFILE_DOCUMENT == Apoyu Zhou
               </h2>
 
               <div className="custom-scrollbar" style={{
@@ -1140,7 +1140,7 @@ function VirtualOS({ view, setView, onProjectChange }) {
 
                     {/* 右侧：版权声明 */}
                     <div style={{ textAlign: 'right' }}>
-                      <p style={{ margin: '0 0 5px 0' }}>DESIGNED & DEVELOPED BY YIRONG ZHOU</p>
+                      <p style={{ margin: '0 0 5px 0' }}>DESIGNED & DEVELOPED BY APOYU ZHOU</p>
                       <p style={{ margin: 0, letterSpacing: '1px' }}>
                         © 2026 <span style={{ color: '#ff9ac2' }}></span> ALL RIGHTS RESERVED.
                       </p>
@@ -1612,8 +1612,8 @@ function IntroOverlay({ onClose }) {
 
   const steps = [
     {
-      title: "YIRONG_PORTFOLIO_INTRO",
-      content: "Hi! I am Yirong Zhou. This is my interactive portfolio.Thank you for visiting! :) " + "※ 本ポートフォリオは英語版のみとなっています。",
+      title: "APOYU_PORTFOLIO_INTRO",
+      content: "Hi! I am Apoyu Zhou. This is my interactive portfolio.Thank you for visiting! :) " + "※ 本ポートフォリオは英語版のみとなっています。",
       icon: "pixelarticons:user"
     },
     {
@@ -1876,7 +1876,7 @@ function QuickLinksOverlay({ onClose }) {
   const links = [
     { name: 'GITHUB',     url: 'https://github.com/KardeniaPoyu',     color: '#fff',     icon: 'pixelarticons:github' },
     { name: 'X/TWITTER',  url: 'https://x.com/KardeniaPoyu',          color: '#1DA1F2',  icon: 'pixelarticons:contact' },
-    { name: 'BLOG',       url: 'https://blog.yirong.site',           color: '#8B5CF6',  icon: 'pixelarticons:article' },
+    { name: 'BLOG',       url: 'https://blog.apoyu.com',           color: '#8B5CF6',  icon: 'pixelarticons:article' },
     { name: 'BILIBILI',   url: 'https://space.bilibili.com/15095535', color: '#fb7299',  icon: 'ri:bilibili-fill' }, // 保持原有图标
     { name: 'CONTACT',    url: 'mailto:yirongyiburong@gmail.com',    color: '#00ffcc',  icon: 'pixelarticons:mail' }
   ];
